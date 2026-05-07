@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GENTLE STUDIO | Creator Recruitment</title>
     <meta property="og:type" content="website">
-    <meta property="og:url" content="본인의 사이트 주소">
     <meta property="og:title" content="GENTLE STUDIO | 크리에이터 모집">
-    <meta property="og:description" content="펜트리 수익화 솔루션부터 고품격 화보 촬영까지, 젠틀스튜디오와 함께하세요.">
+    <meta property="og:description" content="팬트리 수익화 솔루션부터 고품격 화보 촬영까지, 젠틀스튜디오와 함께하세요.">
     <meta property="og:image" content="https://rawcdn.githack.com/ADplanters/GENTLESTUDIO/b7d01ea2c8c69a86dd1e1211c862724e2b602a88/%EC%A0%A0%ED%8B%80%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4.png?raw=true">
+    
     <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;700;900&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --bg-color: #faf9f7; 
@@ -39,7 +40,7 @@
         .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
         .section-padding { padding: 100px 0; }
 
-        /* [핵심] 어그로 폰트 스타일 */
+        /* 어그로 폰트 스타일 */
         .aggro-text {
             font-family: var(--font-aggro);
             text-transform: uppercase;
@@ -47,7 +48,7 @@
             word-break: keep-all;
         }
 
-        /* Hero Section - 로고 강조 */
+        /* Hero Section - 로고 및 배경 이미지 강조 */
         .hero {
             height: 100vh;
             display: flex;
@@ -55,7 +56,9 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(rgba(250,249,247,0.8), rgba(250,249,247,0.8)), url('https://images.unsplash.com/photo-1600566752355-35792bedcfea?q=80&w=1974&auto=format&fit=crop') center/cover;
+            /* 🔥 [변경 완료] 화사한 모델 화보 이미지(가로형)로 교체 및 투명도 조정 */
+            background: linear-gradient(rgba(250,249,247,0.7), rgba(250,249,247,0.8)), 
+                        url('https://images.unsplash.com/photo-1558222097-f763f0d4b1a4?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat;
         }
 
         .main-logo {
@@ -166,7 +169,7 @@
         <div class="container">
             <img src="https://rawcdn.githack.com/ADplanters/GENTLESTUDIO/b7d01ea2c8c69a86dd1e1211c862724e2b602a88/%EC%A0%A0%ED%8B%80%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4.png?raw=true" alt="GENTLE STUDIO" class="main-logo">
             <h2 class="hero-sub-title aggro-text">당신의 가치를 증명하는 프리미엄 스튜디오</h2>
-            <p class="hero-desc">펜트리(Fantrie) 수익화 솔루션부터 고품격 화보 촬영까지,<br>젠틀스튜디오가 크리에이터의 모든 여정을 매니지먼트합니다.</p>
+            <p class="hero-desc">팬트리(Fantrie) 수익화 솔루션부터 고품격 화보 촬영까지,<br>젠틀스튜디오가 크리에이터의 모든 여정을 매니지먼트합니다.</p>
             <a href="#apply-form" class="btn">지금 바로 지원하기 &rarr;</a>
         </div>
     </section>
@@ -187,7 +190,7 @@
             <div class="spec-grid">
                 <div class="spec-card">
                     <h3 class="aggro-text">Professional Shooting</h3>
-                    <p>국내 최정상급 작가진과 함께하는 매월 정기 화보 촬영 지원. 당신의 가장 아름다운 순간을 최고의 퀄리티로 담아냅니다.</p>
+                    <p>협의 후 개인별 맞춤 촬영 지원. 당신의 가장 아름다운 순간을 최고의 퀄리티로 담아냅니다.</p>
                 </div>
                 <div class="spec-card">
                     <h3 class="aggro-text">Fantrie Strategy</h3>
@@ -206,57 +209,52 @@
     </section>
 
     <section class="section-padding apply-section" id="apply-form">
-    <div class="container apply-container">
-        <div class="apply-info">
-            <img src="https://rawcdn.githack.com/ADplanters/GENTLESTUDIO/b7d01ea2c8c69a86dd1e1211c862724e2b602a88/%EC%A0%A0%ED%8B%80%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4.png?raw=true" alt="GENTLE STUDIO" class="footer-logo">
-            <h2 class="aggro-text">CREATE YOUR VALUE</h2>
-            <p style="color: #666; line-height: 1.8;">
-                준비된 지원자에게는 최고의 대우를 약속합니다.<br>
-                지금 젠틀스튜디오의 파트너가 되어보세요.
-            </p>
-        </div>
+        <div class="container apply-container">
+            <div class="apply-info">
+                <img src="https://rawcdn.githack.com/ADplanters/GENTLESTUDIO/b7d01ea2c8c69a86dd1e1211c862724e2b602a88/%EC%A0%A0%ED%8B%80%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4.png?raw=true" alt="GENTLE STUDIO" class="footer-logo">
+                <h2 class="aggro-text">CREATE YOUR VALUE</h2>
+                <p style="color: #666; line-height: 1.8;">
+                    준비된 지원자에게는 최고의 대우를 약속합니다.<br>
+                    지금 젠틀스튜디오의 파트너가 되어보세요.
+                </p>
+            </div>
 
-        <div class="contact-form">
-            <form action="https://formsubmit.co/adp@adplanters.com" method="POST">
-                <input type="hidden" name="_subject" value="[젠틀스튜디오] 신규 크리에이터 지원서">
-                <input type="hidden" name="_next" value="javascript:alert('지원이 완료되었습니다. 담당자가 곧 연락드리겠습니다.');">
-                
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                    <div class="form-group">
-                        <label>이름 *</label>
-                        <input type="text" name="name" required placeholder="실명 입력">
+            <div class="contact-form">
+                <form action="https://formsubmit.co/adp@adplanters.com" method="POST">
+                    <input type="hidden" name="_subject" value="[젠틀스튜디오] 신규 크리에이터 지원서">
+                    <input type="hidden" name="_next" value="javascript:alert('지원이 완료되었습니다. 담당자가 곧 연락드리겠습니다.');">
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div class="form-group">
+                            <label>이름 *</label>
+                            <input type="text" name="name" required placeholder="실명 입력">
+                        </div>
+                        <div class="form-group">
+                            <label>나이 *</label>
+                            <input type="number" name="age" required placeholder="만 나이">
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label>나이 *</label>
-                        <input type="number" name="age" required placeholder="만 나이">
+                        <label>인스타그램 ID *</label>
+                        <input type="text" name="instagram_id" required placeholder="@아이디를 입력해주세요">
                     </div>
-                </div>
-
-                <div class="form-group">
-                    <label>인스타그램 ID *</label>
-                    <input type="text" name="instagram_id" required placeholder="@아이디를 입력해주세요">
-                </div>
-
-                <div class="form-group">
-                    <label>핸드폰번호 *</label>
-                    <input type="tel" name="phone" required placeholder="010-0000-0000">
-                </div>
-                
-                <div class="form-group">
-                    <label>거주 지역 *</label>
-                    <input type="text" name="address" required placeholder="시/군/구 단위 입력">
-                </div>
-
-                <div class="form-group">
-                    <label>기타 문의 및 자기소개</label>
-                    <textarea name="message" rows="4" placeholder="궁금한 점이나 본인 어필 내용을 적어주세요."></textarea>
-                </div>
-
-                <button type="submit" class="btn-submit aggro-text">지 원 하 기</button>
-            </form>
+                    <div class="form-group">
+                        <label>핸드폰번호 *</label>
+                        <input type="tel" name="phone" required placeholder="010-0000-0000">
+                    </div>
+                    <div class="form-group">
+                        <label>거주 지역 *</label>
+                        <input type="text" name="address" required placeholder="시/군/구 단위 입력">
+                    </div>
+                    <div class="form-group">
+                        <label>기타 문의 및 자기소개</label>
+                        <textarea name="message" rows="4" placeholder="궁금한 점을 적어주세요."></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit aggro-text">지 원 하 기</button>
+                </form>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <footer style="background: #000; color: #fff; padding: 40px 0; text-align: center; font-size: 0.8rem; letter-spacing: 2px;">
         <p>GENTLE STUDIO &copy; 2026. ALL RIGHTS RESERVED.</p>
