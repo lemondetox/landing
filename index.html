@@ -206,48 +206,57 @@
     </section>
 
     <section class="section-padding apply-section" id="apply-form">
-        <div class="container apply-container">
-            <div class="apply-info">
-                <img src="https://rawcdn.githack.com/ADplanters/GENTLESTUDIO/b7d01ea2c8c69a86dd1e1211c862724e2b602a88/%EC%A0%A0%ED%8B%80%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4.png?raw=true" alt="GENTLE STUDIO" class="footer-logo">
-                <h2 class="aggro-text">CREATE YOUR VALUE</h2>
-                <p style="color: #666; line-height: 1.8;">
-                    준비된 지원자에게는 최고의 대우를 약속합니다.<br>
-                    지금 젠틀스튜디오의 파트너가 되어보세요.
-                </p>
-            </div>
-
-            <div class="contact-form">
-                <form action="https://formsubmit.co/adp@adplanters.com" method="POST">
-                    <input type="hidden" name="_subject" value="[젠틀스튜디오] 신규 크리에이터 지원서">
-                    <input type="hidden" name="_next" value="javascript:alert('지원이 완료되었습니다. 담당자가 곧 연락드리겠습니다.');">
-                    
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                        <div class="form-group">
-                            <label>이름 *</label>
-                            <input type="text" name="name" required placeholder="실명 입력">
-                        </div>
-                        <div class="form-group">
-                            <label>나이 *</label>
-                            <input type="number" name="age" required placeholder="만 나이">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>핸드폰번호 *</label>
-                        <input type="tel" name="phone" required placeholder="010-0000-0000">
-                    </div>
-                    <div class="form-group">
-                        <label>거주 지역 *</label>
-                        <input type="text" name="address" required placeholder="시/군/구 단위 입력">
-                    </div>
-                    <div class="form-group">
-                        <label>기타 문의 및 자기소개 (SNS 주소 포함)</label>
-                        <textarea name="message" rows="4" placeholder="운영 중인 SNS나 궁금한 점을 적어주세요."></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit aggro-text">지 원 하 기</button>
-                </form>
-            </div>
+    <div class="container apply-container">
+        <div class="apply-info">
+            <img src="https://rawcdn.githack.com/ADplanters/GENTLESTUDIO/b7d01ea2c8c69a86dd1e1211c862724e2b602a88/%EC%A0%A0%ED%8B%80%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4.png?raw=true" alt="GENTLE STUDIO" class="footer-logo">
+            <h2 class="aggro-text">CREATE YOUR VALUE</h2>
+            <p style="color: #666; line-height: 1.8;">
+                준비된 지원자에게는 최고의 대우를 약속합니다.<br>
+                지금 젠틀스튜디오의 파트너가 되어보세요.
+            </p>
         </div>
-    </section>
+
+        <div class="contact-form">
+            <form action="https://formsubmit.co/adp@adplanters.com" method="POST">
+                <input type="hidden" name="_subject" value="[젠틀스튜디오] 신규 크리에이터 지원서">
+                <input type="hidden" name="_next" value="javascript:alert('지원이 완료되었습니다. 담당자가 곧 연락드리겠습니다.');">
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div class="form-group">
+                        <label>이름 *</label>
+                        <input type="text" name="name" required placeholder="실명 입력">
+                    </div>
+                    <div class="form-group">
+                        <label>나이 *</label>
+                        <input type="number" name="age" required placeholder="만 나이">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>인스타그램 ID *</label>
+                    <input type="text" name="instagram_id" required placeholder="@아이디를 입력해주세요">
+                </div>
+
+                <div class="form-group">
+                    <label>핸드폰번호 *</label>
+                    <input type="tel" name="phone" required placeholder="010-0000-0000">
+                </div>
+                
+                <div class="form-group">
+                    <label>거주 지역 *</label>
+                    <input type="text" name="address" required placeholder="시/군/구 단위 입력">
+                </div>
+
+                <div class="form-group">
+                    <label>기타 문의 및 자기소개</label>
+                    <textarea name="message" rows="4" placeholder="궁금한 점이나 본인 어필 내용을 적어주세요."></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit aggro-text">지 원 하 기</button>
+            </form>
+        </div>
+    </div>
+</section>
 
     <footer style="background: #000; color: #fff; padding: 40px 0; text-align: center; font-size: 0.8rem; letter-spacing: 2px;">
         <p>GENTLE STUDIO &copy; 2026. ALL RIGHTS RESERVED.</p>
