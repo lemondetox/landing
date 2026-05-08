@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <title>GENTLE STUDIO | Creator Recruitment</title>
+    <title>GENTLE STUDIO | 크리에이터 지원하기</title>
     
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://lemondetox.github.io/landing/">
-    <meta property="og:title" content="GENTLE STUDIO | 크리에이터 지원">
-    <meta property="og:description" content="이미지 구독 플랫폼 솔루션부터 고품격 1:1 맞춤 촬영까지, 젠틀스튜디오와 함께하세요.">
+    <meta property="og:title" content="GENTLE STUDIO | 크리에이터 지원폼">
+    <meta property="og:description" content="이미지 구독 플랫폼 수익화부터 고품격 1:1 맞춤 촬영까지, 젠틀스튜디오와 함께하세요.">
     <meta property="og:image" content="https://rawcdn.githack.com/ADplanters/GENTLESTUDIO/b7d01ea2c8c69a86dd1e1211c862724e2b602a88/%EC%A0%A0%ED%8B%80%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4.png?raw=true">
     
     <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
@@ -21,6 +21,7 @@
             --text-light: #555555;
             --font-aggro: 'Black Han Sans', sans-serif;
             --font-sans: 'Noto Sans KR', sans-serif;
+            --required-color: #ff0000; /* 필수 표시 빨간색 */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -31,198 +32,96 @@
             color: var(--text-dark);
             background-color: var(--bg-color);
             line-height: 1.6;
-            overflow-x: hidden; /* 모바일 가로 스크롤 방지 */
+            overflow-x: hidden;
         }
 
-        a { text-decoration: none; color: inherit; }
-
-        /* 레이아웃 컨테이너 */
-        .container { 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            padding: 0 20px; /* 모바일 기본 여백 */
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         @media (min-width: 768px) { .container { padding: 0 40px; } }
 
         .section-padding { padding: 80px 0; }
         @media (min-width: 768px) { .section-padding { padding: 120px 0; } }
 
-        .aggro-text {
-            font-family: var(--font-aggro);
-            text-transform: uppercase;
-            word-break: keep-all;
-        }
+        .aggro-text { font-family: var(--font-aggro); text-transform: uppercase; word-break: keep-all; }
 
         /* Hero Section */
         .hero {
-            min-height: 100vh; /* 모바일 브라우저 툴바 대응 */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            z-index: 0;
+            min-height: 100vh;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+            position: relative; z-index: 0;
             background: linear-gradient(rgba(250,249,247,0.7), rgba(250,249,247,0.8));
-            padding-top: 50px;
         }
-
         .hero::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
+            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background-image: url('https://rawcdn.githack.com/ADplanters/foseld/3e00a2d1b90008d73d8e0cf784ed2a05211b338e/%ED%81%AC%EB%A6%AC%EC%97%90%EC%9D%B4%ED%84%B0.png?raw=true');
-            background-size: cover;
-            background-position: center;
-            filter: blur(7px); /* 블러 50% 수준 (7px) */
-            opacity: 0.6;
-            z-index: -1;
+            background-size: cover; background-position: center;
+            filter: blur(7px); opacity: 0.6; z-index: -1;
         }
 
-        .main-logo {
-            width: 85%; /* 모바일에서 화면에 꽉 차지 않게 */
-            max-width: 500px; 
-            margin-bottom: 30px;
-        }
+        .main-logo { width: 85%; max-width: 500px; margin-bottom: 30px; }
+        .hero-sub-title { font-size: 1.2rem; font-weight: 900; margin-bottom: 15px; color: #000; }
+        .hero-desc { font-size: 0.95rem; color: var(--text-light); margin-bottom: 35px; max-width: 500px; }
 
-        .hero-sub-title {
-            font-size: 1.2rem;
-            font-weight: 900;
-            margin-bottom: 15px;
-            color: #000;
-            padding: 0 10px;
-        }
-
-        .hero-desc {
-            font-size: 0.95rem;
-            color: var(--text-light);
-            margin-bottom: 35px;
-            max-width: 500px;
-            padding: 0 15px;
-        }
-
-        /* Buttons */
         .btn {
-            display: inline-block;
-            padding: 18px 45px;
-            background: #000;
-            color: #fff;
-            font-family: var(--font-aggro);
-            font-size: 1.1rem;
-            border-radius: 50px;
-            transition: 0.3s;
+            display: inline-block; padding: 18px 45px; background: #000; color: #fff;
+            font-family: var(--font-aggro); font-size: 1.1rem; border-radius: 50px;
             box-shadow: 0 10px 20px rgba(0,0,0,0.15);
         }
 
-        /* About Section */
-        .about-images { 
-            display: grid; 
-            grid-template-columns: 1fr; /* 모바일 세로 1열 */
-            gap: 15px; 
-            margin: 40px 0; 
-        }
-        @media (min-width: 768px) { .about-images { grid-template-columns: 1fr 1fr; } }
-
-        .img-item {
-            width: 100%; height: 350px; /* 모바일 이미지 높이 조절 */
-            background-size: cover; background-position: center;
-            border-radius: 4px;
-        }
-        @media (min-width: 768px) { .img-item { height: 600px; } }
-
-        /* Specialties Section */
+        /* Specialties & About (생략 가능하나 구조 유지) */
         .specialties-bg { background: #000; color: #fff; }
-        .spec-header { 
-            font-size: 2.2rem; 
-            margin-bottom: 40px; 
-            text-align: center; 
-        }
-        @media (min-width: 768px) { .spec-header { font-size: 4rem; } }
-        
-        .spec-grid { 
-            display: grid; 
-            grid-template-columns: 1fr; 
-            gap: 15px; 
-        }
-        @media (min-width: 768px) { .spec-grid { grid-template-columns: 1fr 1fr; gap: 30px; } }
-
-        .spec-card {
-            background: #1a1a1a;
-            padding: 30px;
-            border-left: 4px solid #fff;
-        }
-        .spec-card h3 {
-            font-family: var(--font-aggro);
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-        .spec-card p { color: #ccc; font-size: 0.9rem; line-height: 1.6; }
+        .spec-card { background: #1a1a1a; padding: 30px; border-left: 4px solid #fff; margin-bottom: 15px; }
 
         /* Application Form Section */
         .apply-section { background-color: var(--bg-alt); }
-        .apply-container { 
-            display: grid; 
-            grid-template-columns: 1fr; 
-            gap: 50px; 
-        }
-        @media (min-width: 992px) { .apply-container { grid-template-columns: 1fr 1.2fr; gap: 60px; } }
+        .contact-form { background: #fff; padding: 30px 20px; border-radius: 8px; box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
         
-        .apply-info { text-align: center; }
-        .footer-logo {
-            width: 70%;
-            max-width: 320px;
-            margin: 0 auto 25px;
-            display: block;
-        }
-
-        .contact-form { 
-            background: #fff; 
-            padding: 30px 20px; 
-            border-radius: 8px; 
-            box-shadow: 0 15px 30px rgba(0,0,0,0.08); 
-        }
-        @media (min-width: 768px) { .contact-form { padding: 50px; } }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr; /* 모바일 세로 1열 */
-            gap: 0;
-        }
-        @media (min-width: 768px) { .form-row { grid-template-columns: 1fr 1fr; gap: 20px; } }
-
         .form-group { margin-bottom: 20px; display: flex; flex-direction: column; }
         .form-group label { font-weight: 700; margin-bottom: 8px; font-size: 0.85rem; color: #333; }
+        
+        /* 필수 입력창 강조 (*) */
+        .form-group label span { color: var(--required-color); margin-left: 2px; }
+
         .form-group input, .form-group textarea {
-            padding: 15px; 
-            border: 1px solid #ddd; 
-            border-radius: 4px;
-            outline: none; 
-            font-size: 16px; /* 모바일 자동 확대 방지 (최소 16px) */
-            font-family: var(--font-sans);
-            background-color: #fcfcfc;
+            padding: 15px; border: 1px solid #ddd; border-radius: 4px; font-size: 16px; font-family: var(--font-sans);
         }
-        .form-group input:focus { border-color: #000; background-color: #fff; }
 
         .btn-submit {
-            width: 100%; 
-            padding: 20px; 
-            background: #000; 
-            color: #fff;
-            font-family: var(--font-aggro); 
-            font-size: 1.3rem; 
-            border: none; 
-            cursor: pointer;
-            border-radius: 4px;
-            margin-top: 10px;
+            width: 100%; padding: 20px; background: #000; color: #fff;
+            font-family: var(--font-aggro); font-size: 1.3rem; border: none; cursor: pointer; border-radius: 4px;
         }
 
-        footer { 
-            background: #000; 
-            color: #fff; 
-            padding: 30px 0; 
-            text-align: center; 
-            font-size: 0.7rem; 
-            letter-spacing: 1px; 
+        /* Footer - 파트너사 정보 추가 */
+        .site-footer {
+            background: #000;
+            color: #fff;
+            padding: 60px 0 40px;
+            font-size: 0.75rem;
+            line-height: 1.8;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            text-align: center;
+        }
+        @media (min-width: 768px) {
+            .footer-grid { grid-template-columns: repeat(3, 1fr); text-align: left; }
+        }
+        .footer-item h4 {
+            font-family: var(--font-aggro);
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+        .footer-item p { color: #999; word-break: keep-all; }
+        .copyright {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #222;
+            text-align: center;
+            color: #555;
+            letter-spacing: 2px;
         }
     </style>
 </head>
@@ -231,87 +130,57 @@
     <section class="hero">
         <div class="container">
             <img src="https://rawcdn.githack.com/ADplanters/GENTLESTUDIO/b7d01ea2c8c69a86dd1e1211c862724e2b602a88/%EC%A0%A0%ED%8B%80%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4.png?raw=true" alt="GENTLE STUDIO" class="main-logo">
-            <h2 class="hero-sub-title aggro-text">당신의 가치를 증명하는 프리미엄 플랫폼</h2>
-            <p class="hero-desc">이미지 구독 플랫폼 솔루션부터 고품격 1:1 맞춤 촬영까지, 모든 여정을 매니지먼트합니다.</p>
+            <h2 class="hero-sub-title aggro-text">당신의 가치를 증명하는 프리미엄 스튜디오</h2>
+            <p class="hero-desc">구독 플랫폼 수익화 솔루션부터 고품격 1:1 맞춤 촬영까지, 전담 매니지먼트를 경험하세요.</p>
             <a href="#apply-form" class="btn">지금 바로 지원하기 &rarr;</a>
-        </div>
-    </section>
-
-    <section class="section-padding container">
-        <h2 class="aggro-text" style="font-size: 2rem; text-align: center; margin-bottom: 15px;">BEYOND THE LIMITS</h2>
-        <p style="text-align: center; color: #666; font-size: 0.9rem; padding: 0 10px;">젠틀스튜디오는 크리에이터의 프라이버시를 보호하며 최상의 수익을 창출합니다.</p>
-        
-        <div class="about-images">
-            <div class="img-item" onclick="location.href='#apply-form'" style="background-image: url('https://images.unsplash.com/photo-1520333789090-1afc82db536a?q=80&w=2071&auto=format&fit=crop');"></div>
-            <div class="img-item" onclick="location.href='#apply-form'" style="background-image: url('https://images.unsplash.com/photo-1492691523567-6170f0295dbd?q=80&w=2070&auto=format&fit=crop');"></div>
         </div>
     </section>
 
     <section class="section-padding specialties-bg">
         <div class="container">
-            <h2 class="spec-header aggro-text">Support System</h2>
-            <div class="spec-grid">
-                <div class="spec-card">
-                    <h3 class="aggro-text">Professional Shooting</h3>
-                    <p>1:1 개인 맞춤 B컷 촬영 촬영 지원. 최고의 퀄리티를 약속합니다.</p>
-                </div>
-                <div class="spec-card">
-                    <h3 class="aggro-text">Fantrie Strategy</h3>
-                    <p>플랫폼별 유료 구독자 전환 알고리즘 분석. 실질적인 매출 증대를 위한 1:1 컨설팅.</p>
-                </div>
-                <div class="spec-card">
-                    <h3 class="aggro-text">Directing & Concept</h3>
-                    <p>독보적인 퍼스널브랜딩 구축. 시장을 압도하는 컨셉 기획과 디렉팅.</p>
-                </div>
-                <div class="spec-card">
-                    <h3 class="aggro-text">Legal & Security</h3>
-                    <p>이미지 무단 배포 강력 대응 및 24시간 모니터링 시스템. 안전한 활동을 보장합니다.</p>
-                </div>
+            <h2 class="aggro-text" style="font-size: 2.2rem; text-align: center; margin-bottom: 40px;">Support System</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                <div class="spec-card"><h3 class="aggro-text">Professional Shooting</h3><p>유료 이미지 가이드 및 1:1 촬영 지원.</p></div>
+                <div class="spec-card"><h3 class="aggro-text">Fantrie Strategy</h3><p>실질적인 매출 증대를 위한 1:1 밀착 컨설팅 및 플랫폼 분석.</p></div>
+                <div class="spec-card"><h3 class="aggro-text">Legal & Security</h3><p>이미지 무단 배포 대응 및 24시간 철저한 보안 모니터링.</p></div>
             </div>
         </div>
     </section>
 
     <section class="section-padding apply-section" id="apply-form">
-        <div class="container apply-container">
-            <div class="apply-info">
-                <img src="https://rawcdn.githack.com/ADplanters/GENTLESTUDIO/b7d01ea2c8c69a86dd1e1211c862724e2b602a88/%EC%A0%A0%ED%8B%80%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4.png?raw=true" alt="GENTLE STUDIO" class="footer-logo">
-                <h2 class="aggro-text" style="font-size: 1.8rem;">CREATE YOUR VALUE</h2>
-                <p style="color: #666; line-height: 1.6; font-size: 0.95rem; margin-top: 10px;">
-                    준비된 지원자에게는 최고의 대우를 약속합니다.<br>
-                    지금 젠틀스튜디오의 파트너가 되어보세요.
-                </p>
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 50px;">
+                <h2 class="aggro-text" style="font-size: 2.2rem;">CREATE YOUR VALUE</h2>
+                <p style="color: #666; margin-top: 10px;">신규 크리에이터 지원서를 작성해 주세요.</p>
             </div>
 
             <div class="contact-form">
                 <form action="https://formsubmit.co/adp@adplanters.com" method="POST">
                     <input type="hidden" name="_subject" value="[젠틀스튜디오] 신규 크리에이터 지원서">
-                    <input type="hidden" name="_next" value="javascript:alert('지원이 완료되었습니다. 담당자가 곧 연락드리겠습니다.');">
                     
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>이름 *</label>
-                            <input type="text" name="name" required placeholder="실명 입력">
-                        </div>
-                        <div class="form-group">
-                            <label>나이 *</label>
-                            <input type="number" name="age" required placeholder="만 나이">
-                        </div>
+                    <div class="form-group">
+                        <label>이름 <span>*</span></label>
+                        <input type="text" name="name" required placeholder="실명 입력">
                     </div>
                     <div class="form-group">
-                        <label>인스타그램 ID *</label>
+                        <label>나이 <span>*</span></label>
+                        <input type="number" name="age" required placeholder="만 나이 입력">
+                    </div>
+                    <div class="form-group">
+                        <label>인스타그램 ID <span>*</span></label>
                         <input type="text" name="instagram_id" required placeholder="@아이디를 입력해주세요">
                     </div>
                     <div class="form-group">
-                        <label>핸드폰번호 *</label>
+                        <label>핸드폰번호 <span>*</span></label>
                         <input type="tel" name="phone" required placeholder="010-0000-0000">
                     </div>
                     <div class="form-group">
-                        <label>거주 지역 *</label>
+                        <label>거주 지역 <span>*</span></label>
                         <input type="text" name="address" required placeholder="시/군/구 단위 입력">
                     </div>
                     <div class="form-group">
                         <label>기타 문의 및 자기소개</label>
-                        <textarea name="message" rows="4" placeholder="운영 중인 SNS나 궁금한 점을 적어주세요."></textarea>
+                        <textarea name="message" rows="4" placeholder="SNS 주소나 궁금한 점을 적어주세요."></textarea>
                     </div>
                     <button type="submit" class="btn-submit aggro-text">지 원 하 기</button>
                 </form>
@@ -319,8 +188,29 @@
         </div>
     </section>
 
-    <footer>
-        <p>GENTLE STUDIO &copy; 2026. ALL RIGHTS RESERVED.</p>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-item">
+                    <h4>PARTNER. ADPLANTERS</h4>
+                    <p>주식회사 애드플랜터스</p>
+                    <p>서울특별시 강서구 공항대로 194, 10층 1007-1호</p>
+                </div>
+                <div class="footer-item">
+                    <h4>PARTNER. FLYHIGH</h4>
+                    <p>주식회사 플라이하이</p>
+                    <p>서울특별시 마포구 성지길 25-11, 지층 1050호 (합정동, 오구빌딩)</p>
+                </div>
+                <div class="footer-item">
+                    <h4>PARTNER. FRANK STORE</h4>
+                    <p>주식회사 프랭크스토어</p>
+                    <p>서울특별시 강남구 봉은사로 213, 11층 (역삼동)</p>
+                </div>
+            </div>
+            <div class="copyright">
+                GENTLE STUDIO &copy; 2026. ALL RIGHTS RESERVED.
+            </div>
+        </div>
     </footer>
 
 </body>
