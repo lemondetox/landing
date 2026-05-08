@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GENTLE STUDIO | Creator Recruitment</title>
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lemondetox.github.io/landing/">
     <meta property="og:title" content="GENTLE STUDIO | 크리에이터 모집">
-    <meta property="og:description" content="팬트리 수익화 솔루션부터 고품격 화보 촬영까지, 젠틀스튜디오와 함께하세요.">
+    <meta property="og:description" content="펜트리 수익화 솔루션부터 1:1 개인 맞춤 촬영까지, 젠틀스튜디오와 함께하세요.">
     <meta property="og:image" content="https://rawcdn.githack.com/ADplanters/GENTLESTUDIO/b7d01ea2c8c69a86dd1e1211c862724e2b602a88/%EC%A0%A0%ED%8B%80%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4.png?raw=true">
     
     <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;700;900&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
-    
     <style>
         :root {
             --bg-color: #faf9f7; 
@@ -48,7 +48,7 @@
             word-break: keep-all;
         }
 
-        /* Hero Section - 로고 및 배경 이미지 강조 */
+        /* Hero Section - 로고 강조 및 배경 이미지 효과 적용 */
         .hero {
             height: 100vh;
             display: flex;
@@ -56,14 +56,39 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            /* 🔥 [변경 완료] 화사한 모델 화보 이미지(가로형)로 교체 및 투명도 조정 */
-            background: linear-gradient(rgba(250,249,247,0.7), rgba(250,249,247,0.8)), 
-                        url('https://images.unsplash.com/photo-1558222097-f763f0d4b1a4?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat;
+            position: relative; /* Pseudo-element 위치 설정을 위해 추가 */
+            z-index: 0; /* 기본 레이어 설정 */
+            /* 배경 이미지를 Pseudo-element로 이동하고 투명도 오버레이 그라디언트는 가독성을 위해 유지 */
+            background: linear-gradient(rgba(250,249,247,0.7), rgba(250,249,247,0.8));
+        }
+
+        /* [핵심 변경 완료] Pseudo-element를 사용한 배경 이미지 흐림 및 투명도 효과 구현 */
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* 새로운 크리에이터 이미지 URL 적용 */
+            background-image: url('https://rawcdn.githack.com/ADplanters/foseld/3e00a2d1b90008d73d8e0cf784ed2a05211b338e/%ED%81%AC%EB%A6%AC%EC%97%90%EC%9D%B4%ED%84%B0.png?raw=true');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: blur(15px); /* 흐림 효과 적용 (15px로 설정, 필요시 조정 가능) */
+            opacity: 0.6; /* 투명도 효과 적용 (60%로 설정, 필요시 조정 가능) */
+            z-index: -1; /* 콘텐츠 아래에 위치 */
+        }
+
+        /* Hero 콘텐츠를 Pseudo-element 위에 올리기 */
+        .hero .container {
+            position: relative;
+            z-index: 1;
         }
 
         .main-logo {
             width: 100%;
-            max-width: 600px; /* 로고 크기 대폭 확대 */
+            max-width: 600px; /* 로고 크기 대폭 확대 유지 */
             margin-bottom: 40px;
             filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
             transition: transform 0.5s ease;
@@ -135,7 +160,7 @@
         .apply-info { text-align: center; }
         .apply-info .footer-logo {
             width: 100%;
-            max-width: 400px; /* 폼 영역 로고 확대 */
+            max-width: 400px; /* 폼 영역 로고 확대 유지 */
             margin-bottom: 30px;
             display: block;
             margin-left: auto;
@@ -169,7 +194,7 @@
         <div class="container">
             <img src="https://rawcdn.githack.com/ADplanters/GENTLESTUDIO/b7d01ea2c8c69a86dd1e1211c862724e2b602a88/%EC%A0%A0%ED%8B%80%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4.png?raw=true" alt="GENTLE STUDIO" class="main-logo">
             <h2 class="hero-sub-title aggro-text">당신의 가치를 증명하는 프리미엄 스튜디오</h2>
-            <p class="hero-desc">팬트리(Fantrie) 수익화 솔루션부터 고품격 화보 촬영까지,<br>젠틀스튜디오가 크리에이터의 모든 여정을 매니지먼트합니다.</p>
+            <p class="hero-desc">펜트리(Fantrie) 수익화 솔루션부터 고품격 화보 촬영까지,<br>젠틀스튜디오가 크리에이터의 모든 여정을 매니지먼트합니다.</p>
             <a href="#apply-form" class="btn">지금 바로 지원하기 &rarr;</a>
         </div>
     </section>
@@ -190,7 +215,7 @@
             <div class="spec-grid">
                 <div class="spec-card">
                     <h3 class="aggro-text">Professional Shooting</h3>
-                    <p>협의 후 개인별 맞춤 촬영 지원. 당신의 가장 아름다운 순간을 최고의 퀄리티로 담아냅니다.</p>
+                    <p>국내 최정상급 작가진과 함께하는 매월 정기 화보 촬영 지원. 당신의 가장 아름다운 순간을 최고의 퀄리티로 담아냅니다.</p>
                 </div>
                 <div class="spec-card">
                     <h3 class="aggro-text">Fantrie Strategy</h3>
@@ -248,7 +273,7 @@
                     </div>
                     <div class="form-group">
                         <label>기타 문의 및 자기소개</label>
-                        <textarea name="message" rows="4" placeholder="궁금한 점을 적어주세요."></textarea>
+                        <textarea name="message" rows="4" placeholder="궁금한 점이나 본인 어필 내용을 적어주세요."></textarea>
                     </div>
                     <button type="submit" class="btn-submit aggro-text">지 원 하 기</button>
                 </form>
