@@ -2,189 +2,227 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <title>GENTLE STUDIO | Creator Recruitment</title>
+    
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://lemondetox.github.io/landing/">
     <meta property="og:title" content="GENTLE STUDIO | 크리에이터 모집">
-    <meta property="og:description" content="구독 플랫폼 수익화 솔루션부터 1:1 개인 맞춤 촬영까지, 젠틀스튜디오와 함께하세요.">
+    <meta property="og:description" content="이미지 구독 플랫폼 솔루션부터 고품격 1:1 맞춤 촬영까지, 젠틀스튜디오와 함께하세요.">
     <meta property="og:image" content="https://rawcdn.githack.com/ADplanters/GENTLESTUDIO/b7d01ea2c8c69a86dd1e1211c862724e2b602a88/%EC%A0%A0%ED%8B%80%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4.png?raw=true">
     
-    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;700;900&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --bg-color: #faf9f7; 
             --bg-alt: #f1eee9;   
             --text-dark: #111111;
             --text-light: #555555;
-            --border-color: #dcd8d1;
-            --font-aggro: 'Black Han Sans', sans-serif; /* 어그로 폰트 */
+            --font-aggro: 'Black Han Sans', sans-serif;
             --font-sans: 'Noto Sans KR', sans-serif;
-            --font-serif: 'Playfair Display', serif;
-            --point-color: #000000;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         html { scroll-behavior: smooth; }
 
         body {
             font-family: var(--font-sans);
             color: var(--text-dark);
             background-color: var(--bg-color);
-            line-height: 1.5;
+            line-height: 1.6;
+            overflow-x: hidden; /* 모바일 가로 스크롤 방지 */
         }
 
-        a { text-decoration: none; color: inherit; cursor: pointer; }
+        a { text-decoration: none; color: inherit; }
 
-        /* 공통 레이아웃 */
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
-        .section-padding { padding: 100px 0; }
+        /* 레이아웃 컨테이너 */
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 20px; /* 모바일 기본 여백 */
+        }
+        @media (min-width: 768px) { .container { padding: 0 40px; } }
 
-        /* 어그로 폰트 스타일 */
+        .section-padding { padding: 80px 0; }
+        @media (min-width: 768px) { .section-padding { padding: 120px 0; } }
+
         .aggro-text {
             font-family: var(--font-aggro);
             text-transform: uppercase;
-            letter-spacing: -0.5px;
             word-break: keep-all;
         }
 
-        /* Hero Section - 로고 강조 및 배경 이미지 효과 적용 */
+        /* Hero Section */
         .hero {
-            height: 100vh;
+            min-height: 100vh; /* 모바일 브라우저 툴바 대응 */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            position: relative; /* Pseudo-element 위치 설정을 위해 추가 */
-            z-index: 0; /* 기본 레이어 설정 */
-            /* 배경 이미지를 Pseudo-element로 이동하고 투명도 오버레이 그라디언트는 가독성을 위해 유지 */
+            position: relative;
+            z-index: 0;
             background: linear-gradient(rgba(250,249,247,0.7), rgba(250,249,247,0.8));
+            padding-top: 50px;
         }
 
-        /* [핵심 변경 완료] Pseudo-element를 사용한 배경 이미지 흐림 및 투명도 효과 구현 */
         .hero::before {
             content: "";
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            /* 새로운 크리에이터 이미지 URL 적용 */
+            top: 0; left: 0; width: 100%; height: 100%;
             background-image: url('https://rawcdn.githack.com/ADplanters/foseld/3e00a2d1b90008d73d8e0cf784ed2a05211b338e/%ED%81%AC%EB%A6%AC%EC%97%90%EC%9D%B4%ED%84%B0.png?raw=true');
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
-            filter: blur(3px); /* 흐림 효과 적용 (15px로 설정, 필요시 조정 가능) */
-            opacity: 0.6; /* 투명도 효과 적용 (60%로 설정, 필요시 조정 가능) */
-            z-index: -1; /* 콘텐츠 아래에 위치 */
-        }
-
-        /* Hero 콘텐츠를 Pseudo-element 위에 올리기 */
-        .hero .container {
-            position: relative;
-            z-index: 1;
+            filter: blur(7px); /* 블러 50% 수준 (7px) */
+            opacity: 0.6;
+            z-index: -1;
         }
 
         .main-logo {
-            width: 100%;
-            max-width: 600px; /* 로고 크기 대폭 확대 유지 */
-            margin-bottom: 40px;
-            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
-            transition: transform 0.5s ease;
+            width: 85%; /* 모바일에서 화면에 꽉 차지 않게 */
+            max-width: 500px; 
+            margin-bottom: 30px;
         }
-        .main-logo:hover { transform: scale(1.02); }
 
         .hero-sub-title {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 900;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             color: #000;
+            padding: 0 10px;
         }
 
         .hero-desc {
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             color: var(--text-light);
-            margin-bottom: 40px;
-            max-width: 700px;
+            margin-bottom: 35px;
+            max-width: 500px;
+            padding: 0 15px;
         }
 
         /* Buttons */
         .btn {
-            padding: 20px 50px;
+            display: inline-block;
+            padding: 18px 45px;
             background: #000;
             color: #fff;
             font-family: var(--font-aggro);
-            font-size: 1.2rem;
-            border: none;
+            font-size: 1.1rem;
             border-radius: 50px;
             transition: 0.3s;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
         }
-        .btn:hover { background: #333; transform: translateY(-5px); }
 
-        /* Stats & About */
-        .about-images { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 60px 0; }
-        .img-item {
-            width: 100%; height: 600px;
-            background-size: cover; background-position: center;
-            cursor: pointer; filter: grayscale(20%); transition: 0.5s;
+        /* About Section */
+        .about-images { 
+            display: grid; 
+            grid-template-columns: 1fr; /* 모바일 세로 1열 */
+            gap: 15px; 
+            margin: 40px 0; 
         }
-        .img-item:hover { filter: grayscale(0%); }
+        @media (min-width: 768px) { .about-images { grid-template-columns: 1fr 1fr; } }
+
+        .img-item {
+            width: 100%; height: 350px; /* 모바일 이미지 높이 조절 */
+            background-size: cover; background-position: center;
+            border-radius: 4px;
+        }
+        @media (min-width: 768px) { .img-item { height: 600px; } }
 
         /* Specialties Section */
-        .specialties-bg { background: #000; color: #fff; padding: 120px 0; }
-        .spec-header { font-size: 4rem; margin-bottom: 60px; text-align: center; color: #fff; }
+        .specialties-bg { background: #000; color: #fff; }
+        .spec-header { 
+            font-size: 2.2rem; 
+            margin-bottom: 40px; 
+            text-align: center; 
+        }
+        @media (min-width: 768px) { .spec-header { font-size: 4rem; } }
         
-        .spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .spec-grid { 
+            display: grid; 
+            grid-template-columns: 1fr; 
+            gap: 15px; 
+        }
+        @media (min-width: 768px) { .spec-grid { grid-template-columns: 1fr 1fr; gap: 30px; } }
+
         .spec-card {
             background: #1a1a1a;
-            padding: 50px;
-            border-left: 5px solid #fff;
-            transition: 0.3s;
+            padding: 30px;
+            border-left: 4px solid #fff;
         }
-        .spec-card:hover { background: #252525; }
         .spec-card h3 {
             font-family: var(--font-aggro);
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            color: #fff;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
         }
-        .spec-card p { color: #ccc; font-size: 1rem; line-height: 1.7; }
+        .spec-card p { color: #ccc; font-size: 0.9rem; line-height: 1.6; }
 
         /* Application Form Section */
         .apply-section { background-color: var(--bg-alt); }
-        .apply-container { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: center; }
+        .apply-container { 
+            display: grid; 
+            grid-template-columns: 1fr; 
+            gap: 50px; 
+        }
+        @media (min-width: 992px) { .apply-container { grid-template-columns: 1fr 1.2fr; gap: 60px; } }
         
-        /* 폼 영역 로고 강조 */
         .apply-info { text-align: center; }
-        .apply-info .footer-logo {
-            width: 100%;
-            max-width: 400px; /* 폼 영역 로고 확대 유지 */
-            margin-bottom: 30px;
+        .footer-logo {
+            width: 70%;
+            max-width: 320px;
+            margin: 0 auto 25px;
             display: block;
-            margin-left: auto;
-            margin-right: auto;
         }
-        .apply-info h2 { font-size: 2.5rem; margin-bottom: 20px; }
 
-        .contact-form { background: #fff; padding: 50px; border-radius: 4px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .form-group { margin-bottom: 20px; display: flex; flex-direction: column; }
-        .form-group label { font-weight: 700; margin-bottom: 8px; font-size: 0.9rem; }
-        .form-group input, .form-group textarea {
-            padding: 15px; border: 1px solid #ddd; outline: none; font-size: 1rem; font-family: var(--font-sans);
+        .contact-form { 
+            background: #fff; 
+            padding: 30px 20px; 
+            border-radius: 8px; 
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08); 
         }
-        .form-group input:focus { border-color: #000; }
+        @media (min-width: 768px) { .contact-form { padding: 50px; } }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr; /* 모바일 세로 1열 */
+            gap: 0;
+        }
+        @media (min-width: 768px) { .form-row { grid-template-columns: 1fr 1fr; gap: 20px; } }
+
+        .form-group { margin-bottom: 20px; display: flex; flex-direction: column; }
+        .form-group label { font-weight: 700; margin-bottom: 8px; font-size: 0.85rem; color: #333; }
+        .form-group input, .form-group textarea {
+            padding: 15px; 
+            border: 1px solid #ddd; 
+            border-radius: 4px;
+            outline: none; 
+            font-size: 16px; /* 모바일 자동 확대 방지 (최소 16px) */
+            font-family: var(--font-sans);
+            background-color: #fcfcfc;
+        }
+        .form-group input:focus { border-color: #000; background-color: #fff; }
 
         .btn-submit {
-            width: 100%; padding: 20px; background: #000; color: #fff;
-            font-family: var(--font-aggro); font-size: 1.5rem; border: none; cursor: pointer;
+            width: 100%; 
+            padding: 20px; 
+            background: #000; 
+            color: #fff;
+            font-family: var(--font-aggro); 
+            font-size: 1.3rem; 
+            border: none; 
+            cursor: pointer;
+            border-radius: 4px;
+            margin-top: 10px;
         }
 
-        @media (max-width: 768px) {
-            .spec-grid, .apply-container, .about-images { grid-template-columns: 1fr; }
-            .spec-header { font-size: 2.5rem; }
-            .main-logo { max-width: 80%; }
+        footer { 
+            background: #000; 
+            color: #fff; 
+            padding: 30px 0; 
+            text-align: center; 
+            font-size: 0.7rem; 
+            letter-spacing: 1px; 
         }
     </style>
 </head>
@@ -194,14 +232,14 @@
         <div class="container">
             <img src="https://rawcdn.githack.com/ADplanters/GENTLESTUDIO/b7d01ea2c8c69a86dd1e1211c862724e2b602a88/%EC%A0%A0%ED%8B%80%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4.png?raw=true" alt="GENTLE STUDIO" class="main-logo">
             <h2 class="hero-sub-title aggro-text">당신의 가치를 증명하는 프리미엄 스튜디오</h2>
-            <p class="hero-desc">펜트리(Fantrie) 수익화 솔루션부터 고품격 화보 촬영까지,<br>젠틀스튜디오가 크리에이터의 모든 여정을 매니지먼트합니다.</p>
+            <p class="hero-desc">펜트리(Fantrie) 수익화 솔루션부터 고품격 화보 촬영까지, 모든 여정을 매니지먼트합니다.</p>
             <a href="#apply-form" class="btn">지금 바로 지원하기 &rarr;</a>
         </div>
     </section>
 
     <section class="section-padding container">
-        <h2 class="aggro-text" style="font-size: 3rem; text-align: center; margin-bottom: 20px;">BEYOND THE LIMITS</h2>
-        <p style="text-align: center; color: #666;">젠틀스튜디오는 크리에이터의 프라이버시를 보호하며 최상의 수익을 창출합니다.</p>
+        <h2 class="aggro-text" style="font-size: 2rem; text-align: center; margin-bottom: 15px;">BEYOND THE LIMITS</h2>
+        <p style="text-align: center; color: #666; font-size: 0.9rem; padding: 0 10px;">젠틀스튜디오는 크리에이터의 프라이버시를 보호하며 최상의 수익을 창출합니다.</p>
         
         <div class="about-images">
             <div class="img-item" onclick="location.href='#apply-form'" style="background-image: url('https://images.unsplash.com/photo-1520333789090-1afc82db536a?q=80&w=2071&auto=format&fit=crop');"></div>
@@ -209,25 +247,25 @@
         </div>
     </section>
 
-    <section class="specialties-bg">
+    <section class="section-padding specialties-bg">
         <div class="container">
             <h2 class="spec-header aggro-text">Support System</h2>
             <div class="spec-grid">
                 <div class="spec-card">
                     <h3 class="aggro-text">Professional Shooting</h3>
-                    <p>국내 최정상급 작가진과 함께하는 매월 정기 화보 촬영 지원. 당신의 가장 아름다운 순간을 최고의 퀄리티로 담아냅니다.</p>
+                    <p>국내 최정상급 작가진과 함께하는 매월 정기 화보 촬영 지원. 최고의 퀄리티를 약속합니다.</p>
                 </div>
                 <div class="spec-card">
                     <h3 class="aggro-text">Fantrie Strategy</h3>
-                    <p>플랫폼별 유료 구독자 전환 알고리즘 분석. 단순 운영을 넘어 실질적인 매출 증대를 위한 1:1 밀착 컨설팅을 제공합니다.</p>
+                    <p>플랫폼별 유료 구독자 전환 알고리즘 분석. 실질적인 매출 증대를 위한 1:1 컨설팅.</p>
                 </div>
                 <div class="spec-card">
                     <h3 class="aggro-text">Directing & Concept</h3>
-                    <p>크리에이터만의 독보적인 브랜드 아이덴티티 구축. 시장을 압도하는 컨셉 기획과 디렉팅으로 경쟁력을 확보합니다.</p>
+                    <p>독보적인 브랜드 아이덴티티 구축. 시장을 압도하는 컨셉 기획과 디렉팅.</p>
                 </div>
                 <div class="spec-card">
                     <h3 class="aggro-text">Legal & Security</h3>
-                    <p>이미지 무단 배포 강력 대응 및 24시간 모니터링 시스템. 크리에이터가 안심하고 활동할 수 있는 법률적 보호망을 구축합니다.</p>
+                    <p>이미지 무단 배포 강력 대응 및 24시간 모니터링 시스템. 안전한 활동을 보장합니다.</p>
                 </div>
             </div>
         </div>
@@ -237,8 +275,8 @@
         <div class="container apply-container">
             <div class="apply-info">
                 <img src="https://rawcdn.githack.com/ADplanters/GENTLESTUDIO/b7d01ea2c8c69a86dd1e1211c862724e2b602a88/%EC%A0%A0%ED%8B%80%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4.png?raw=true" alt="GENTLE STUDIO" class="footer-logo">
-                <h2 class="aggro-text">CREATE YOUR VALUE</h2>
-                <p style="color: #666; line-height: 1.8;">
+                <h2 class="aggro-text" style="font-size: 1.8rem;">CREATE YOUR VALUE</h2>
+                <p style="color: #666; line-height: 1.6; font-size: 0.95rem; margin-top: 10px;">
                     준비된 지원자에게는 최고의 대우를 약속합니다.<br>
                     지금 젠틀스튜디오의 파트너가 되어보세요.
                 </p>
@@ -249,7 +287,7 @@
                     <input type="hidden" name="_subject" value="[젠틀스튜디오] 신규 크리에이터 지원서">
                     <input type="hidden" name="_next" value="javascript:alert('지원이 완료되었습니다. 담당자가 곧 연락드리겠습니다.');">
                     
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div class="form-row">
                         <div class="form-group">
                             <label>이름 *</label>
                             <input type="text" name="name" required placeholder="실명 입력">
@@ -273,7 +311,7 @@
                     </div>
                     <div class="form-group">
                         <label>기타 문의 및 자기소개</label>
-                        <textarea name="message" rows="4" placeholder="궁금한 점이나 본인 어필 내용을 적어주세요."></textarea>
+                        <textarea name="message" rows="4" placeholder="운영 중인 SNS나 궁금한 점을 적어주세요."></textarea>
                     </div>
                     <button type="submit" class="btn-submit aggro-text">지 원 하 기</button>
                 </form>
@@ -281,7 +319,7 @@
         </div>
     </section>
 
-    <footer style="background: #000; color: #fff; padding: 40px 0; text-align: center; font-size: 0.8rem; letter-spacing: 2px;">
+    <footer>
         <p>GENTLE STUDIO &copy; 2026. ALL RIGHTS RESERVED.</p>
     </footer>
 
