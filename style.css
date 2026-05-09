@@ -65,7 +65,7 @@ body {
     background-image: url('https://rawcdn.githack.com/ADplanters/foseld/3e00a2d1b90008d73d8e0cf784ed2a05211b338e/%ED%81%AC%EB%A6%AC%EC%97%90%EC%9D%B4%ED%84%B0.png?raw=true');
     background-size: cover;
     background-position: center;
-    filter: blur(5px);
+    filter: blur(2.5px);
     opacity: 0.4;
     z-index: 2;
 }
