@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (entry.isIntersecting) {
                 // 화면에 들어오면 active 클래스 추가
                 entry.target.classList.add('active');
+                // 한 번 나타난 뒤에는 감시 종료 (성능 최적화)
                 observer.unobserve(entry.target);
             }
         });
