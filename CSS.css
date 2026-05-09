@@ -146,3 +146,18 @@ body.loaded .reveal.active {
 .site-footer { background: #000; color: #fff; padding: 50px 0; font-size: 0.8rem; position: relative; z-index: 20; }
 .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
 .footer-item p { color: #666; }
+
+/* style.css 하단에 이 구조로 되어 있는지 확인해 보세요 */
+
+.reveal {
+    opacity: 0; /* 기본적으로 숨김 */
+    transform: translateY(30px); /* 아래에 배치 */
+    transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    visibility: visible; /* 혹시 모를 레이아웃 깨짐 방지 */
+}
+
+/* active가 붙으면 무조건 보이게 */
+.reveal.active {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
