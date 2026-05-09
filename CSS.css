@@ -121,6 +121,13 @@ body.loaded .reveal.active {
 .form-group input, .form-group textarea { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; }
 .btn-submit { width: 100%; padding: 20px; background: #000; color: #fff; border: none; font-family: var(--font-aggro); font-size: 1.3rem; border-radius: 8px; cursor: pointer; }
 
+/* 필수 입력 항목(*) 스타일 */
+.form-group label span {
+    color: #ff0000 !important; /* 확실하게 빨간색 적용 */
+    margin-left: 4px;          /* 이름과 별표 사이의 간격 */
+    font-weight: bold;
+}
+
 /* Footer */
 .site-footer { background: #000; color: #fff; padding: 50px 0; font-size: 0.8rem; }
 .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
