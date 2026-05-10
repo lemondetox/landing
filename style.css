@@ -86,7 +86,13 @@ body {
     z-index: 10;
 }
 
-.main-logo { width: 85%; max-width: 450px; margin-bottom: 25px; }
+/* 수정된 코드 (2배 확대) */
+.main-logo { 
+    width: 100%;        /* 모바일에서 더 시원하게 보이도록 100%로 확장 */
+    max-width: 900px;    /* 기존 450px의 2배인 900px로 변경 */
+    margin-bottom: 30px; /* 로고가 커진 만큼 하단 여백도 살짝 조정 */
+    height: auto;        /* 이미지 비율 유지 */
+}
 
 .hero-sub-title { 
     font-family: var(--font-aggro); 
