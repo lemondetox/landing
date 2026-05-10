@@ -2,9 +2,16 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    /* 모바일에서 글자 크기 조절 방지 및 쾌적한 비율 유지 */
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <title>GENTLE STUDIO | 크리에이터 지원하기</title>
-    
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="GENTLE STUDIO | 크리에이터 지원">
+    <meta property="og:description" content="당신의 가치를 증명하는 프리미엄 플랫폼, 전담 매니지먼트를 경험하세요.">
+    <meta property="og:image" content="https://rawcdn.githack.com/ADplanters/GENTLESTUDIO/b7d01ea2c8c69a86dd1e1211c862724e2b602a88/%EC%A0%A0%ED%8B%80%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4.png?raw=true">
+    <meta property="og:url" content="현재사이트주소">
+
     <link rel="stylesheet" href="style.css">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gmarket-sans@1.0.0/fonts.css">
@@ -16,15 +23,17 @@
         <div class="hero-bg"></div>
         <div class="hero-overlay"></div>
         <div class="container hero-content">
-            <img src="https://rawcdn.githack.com/ADplanters/GENTLESTUDIO/b7d01ea2c8c69a86dd1e1211c862724e2b602a88/%EC%A0%A0%ED%8B%80%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4.png?raw=true" alt="GENTLE STUDIO" class="main-logo">
-            <h2 class="hero-sub-title aggro-text">당신의 가치를 증명하는 프리미엄 플랫폼</h2>
-            <p class="hero-desc">
-                <span class="highlight">구독 플랫폼 수익화 솔루션부터 고품격 1:1 맞춤 촬영까지,</span><br>
-                전담 매니지먼트를 경험하세요.
-            </p>
-            <a href="#apply-form" class="btn">
-                지금 바로 지원하기 <span class="btn-arrow"></span>
-            </a>
+            <div class="reveal">
+                <img src="https://rawcdn.githack.com/ADplanters/GENTLESTUDIO/b7d01ea2c8c69a86dd1e1211c862724e2b602a88/%EC%A0%A0%ED%8B%80%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4.png?raw=true" alt="GENTLE STUDIO" class="main-logo">
+                <h2 class="hero-sub-title aggro-text">당신의 가치를 증명하는 프리미엄 플랫폼</h2>
+                <p class="hero-desc">
+                    <span class="highlight">구독 플랫폼 수익화 솔루션부터 고품격 1:1 맞춤 촬영까지,</span><br>
+                    전담 매니지먼트를 경험하세요.
+                </p>
+                <a href="#apply-form" class="btn">
+                    지금 바로 지원하기 <span class="btn-arrow"></span>
+                </a>
+            </div>
         </div>
     </section>
 
@@ -58,26 +67,27 @@
             <div class="contact-form reveal">
                 <form action="https://formsubmit.co/adp@adplanters.com" method="POST">
                     <input type="hidden" name="_subject" value="[젠틀스튜디오] 신규 크리에이터 지원서">
+                    <input type="hidden" name="_captcha" value="false">
                     
                     <div class="form-group">
                         <label for="user-name">이름 <span>*</span></label>
-                        <input type="text" id="user-name" name="name" required placeholder="실명 입력">
+                        <input type="text" id="user-name" name="name" required placeholder="실명 입력" autocomplete="name">
                     </div>
                     <div class="form-group">
                         <label for="user-age">생년월일 <span>*</span></label>
-                        <input type="number" id="user-age" name="age" required placeholder="앞 6자리">
+                        <input type="text" id="user-age" name="age" required placeholder="앞 6자리 (ex. 950101)" inputmode="numeric" pattern="[0-9]*">
                     </div>
                     <div class="form-group">
                         <label for="user-insta">인스타그램 ID <span>*</span></label>
-                        <input type="text" id="user-insta" name="instagram_id" required placeholder="@아이디">
+                        <input type="text" id="user-insta" name="instagram_id" required placeholder="@아이디" autocomplete="off">
                     </div>
                     <div class="form-group">
                         <label for="user-phone">핸드폰번호 <span>*</span></label>
-                        <input type="tel" id="user-phone" name="phone" required placeholder="010-0000-0000">
+                        <input type="tel" id="user-phone" name="phone" required placeholder="010-0000-0000" autocomplete="tel">
                     </div>
                     <div class="form-group">
                         <label for="user-address">거주지 주소 <span>*</span></label>
-                        <input type="text" id="user-address" name="address" required placeholder="주소 입력">
+                        <input type="text" id="user-address" name="address" required placeholder="시/군/구까지만 입력 가능">
                     </div>
                     <div class="form-group">
                         <label for="user-msg">기타 문의 및 자기소개</label>
