@@ -238,3 +238,52 @@ body {
     color: #444; 
     letter-spacing: 2px;
 }
+
+/* 개인정보 동의 영역 스타일 */
+.privacy-group {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* 기존 input 스타일이 체크박스 크기를 비대하게 만들지 않도록 방지 */
+.checkbox-container input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.checkbox-container label {
+    margin-bottom: 0;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.checkbox-container .required {
+    color: #ff4d4d;
+}
+
+/* 자세히보기 링크 스타일 */
+.link-detail {
+    color: #007bff;
+    text-decoration: underline;
+    font-size: 0.9rem;
+    margin-left: 5px;
+}
+
+/* 에러 메시지 스타일 (빨간 글씨) */
+.error-text {
+    color: #ff4d4d;
+    font-size: 0.85rem;
+    margin-top: 8px;
+    font-weight: 700;
+    text-align: left;
+}
