@@ -41,3 +41,27 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.add('loaded');
     }, 50);
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('form');
+    const checkbox = document.getElementById('privacy-agree');
+    const errorText = document.getElementById('privacy-error');
+
+    form.addEventListener('submit', function(event) {
+        // 체크박스가 체크되어 있는지 확인
+        if (!checkbox.checked) {
+            event.preventDefault(); // 폼 전송(FormSubmit.co)을 막음
+            errorText.style.display = 'block'; // 에러 메시지 표시
+            checkbox.focus(); // 사용자의 시선을 체크박스로 이동
+        } else {
+            errorText.style.display = 'none'; // 체크되었다면 에러 메시지 숨김 (정상 전송)
+        }
+    });
+
+    // 사용자가 경고를 보고 체크박스를 누르는 즉시 빨간 글씨가 사라지도록 만드는 편의 기능
+    checkbox.addEventListener('change', function() {
+        if (checkbox.checked) {
+            errorText.style.display = 'none';
+        }
+    });
+});
