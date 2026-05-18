@@ -42,23 +42,72 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 50);
 });
 
+/**
+ * 폼 검증 및 FormSubmit 비동기(AJAX) 전송 스크립트
+ */
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('form');
     const checkbox = document.getElementById('privacy-agree');
     const errorText = document.getElementById('privacy-error');
+    const submitBtn = form.querySelector('.btn-submit'); // 지원하기 버튼 호출
 
     form.addEventListener('submit', function(event) {
-        // 체크박스가 체크되어 있는지 확인
+        // 우선 브라우저의 기본 전송(페이지 이동)을 막습니다.
+        event.preventDefault(); 
+
+        // [기존 로직 유지] 체크박스가 체크되어 있는지 확인
         if (!checkbox.checked) {
-            event.preventDefault(); // 폼 전송(FormSubmit.co)을 막음
             errorText.style.display = 'block'; // 에러 메시지 표시
             checkbox.focus(); // 사용자의 시선을 체크박스로 이동
-        } else {
-            errorText.style.display = 'none'; // 체크되었다면 에러 메시지 숨김 (정상 전송)
+            return; // 체크가 안 되었다면 여기서 실행을 중단합니다.
+        } 
+        
+        // 체크가 잘 되었다면 에러 메시지를 숨기고 전송 단계로 진행
+        errorText.style.display = 'none'; 
+
+        // --- 여기서부터 FormSubmit을 부드럽게 연동하는 AJAX 로직입니다 ---
+        
+        // 중복 클릭 방지를 위해 버튼을 잠시 비활성화합니다.
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.innerText = '전 송 중...';
         }
+
+        // 폼 내부의 모든 입력 데이터를 수집합니다.
+        const formData = new FormData(form);
+
+        // FormSubmit 서버로 데이터를 비동기 전송합니다.
+        fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                // 전송 성공 시 알림창을 띄우고 입력창을 깨끗하게 비웁니다.
+                alert('지원이 정상적으로 완료되었습니다. 감사합니다!');
+                form.reset(); 
+            } else {
+                // FormSubmit 서버 오류 혹은 이메일 인증이 안 된 경우
+                alert('전송 중 오류가 발생했습니다. 이메일 활성화 상태를 확인해 주세요.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('네트워크 오류가 발생했습니다. 인터넷 연결을 확인해 주세요.');
+        })
+        .finally(() => {
+            // 전송 프로세스가 끝나면 버튼을 다시 원래대로 되돌립니다.
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.innerText = '지 원 하 기';
+            }
+        });
     });
 
-    // 사용자가 경고를 보고 체크박스를 누르는 즉시 빨간 글씨가 사라지도록 만드는 편의 기능
+    // [기존 로직 유지] 사용자가 경고를 보고 체크박스를 누르는 즉시 빨간 글씨가 사라지도록 만드는 편의 기능
     checkbox.addEventListener('change', function() {
         if (checkbox.checked) {
             errorText.style.display = 'none';
