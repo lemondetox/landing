@@ -92,6 +92,19 @@
                         <textarea id="user-msg" name="message" rows="4" placeholder="내용을 입력해 주세요."></textarea>
                     </div>
                     <button type="submit" class="btn-submit aggro-text">지 원 하 기</button>
+                    <!-- 개인정보수집동의 체크박스 추가 -->
+<div class="form-group privacy-group">
+    <div class="checkbox-container">
+        <input type="checkbox" id="privacy-agree" name="privacy_agree">
+        <label for="privacy-agree">
+            개인정보 수집 및 이용에 동의합니다 <span class="required">*</span>
+        </label>
+        <!-- 추후 여기에 새로운 페이지 하이퍼링크 주소를넣으시면 됩니다 -->
+        <a href="privacy-policy.html" target="_blank" class="link-detail">(자세히보기)</a>
+    </div>
+    <!-- 에러 메시지 출력 영역 (기본 상태는 숨김) -->
+    <div id="privacy-error" class="error-text" style="display: none;">필수체크항목입니다</div>
+</div>
                 </form>
             </div>
         </div>
