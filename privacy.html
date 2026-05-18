@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>애드플랜터스 | 개인정보 수집·이용 동의서</title>
     
-    <!-- 폰트 스타일 유지 -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght=400;700;900&display=swap" rel="stylesheet">
     
     <style>
@@ -104,6 +103,42 @@
             text-align: center;
             border-top: 1px dashed #dee2e6;
             padding-top: 20px;
+        }
+
+        /* ==========================================
+           [추가] 모바일 브라우저 최적화 반응형 미디어 쿼리
+           ========================================== */
+        @media (max-width: 768px) {
+            body {
+                padding: 12px; /* 바깥 여백 축소 */
+            }
+            .policy-container {
+                margin: 20px auto;
+                padding: 25px 18px; /* 내부 패딩을 좁혀 본문 가독 면적 극대화 */
+                border-radius: 8px;
+            }
+            h1 {
+                font-size: 1.3rem; /* 폰트 크기 최적화 */
+                margin-bottom: 20px;
+            }
+            h2 {
+                font-size: 1.1rem;
+                flex-wrap: wrap; /* 제목이 길어질 경우 줄바꿈 유연성 확보 */
+                gap: 6px;
+            }
+            /* 고정 가로폭을 해제하고 세로로 흐르게 정렬 구조 변경 */
+            .item-title {
+                display: block;
+                width: 100%;
+                margin-bottom: 4px;
+            }
+            .item-desc {
+                display: block;
+                width: 100%;
+            }
+            li {
+                margin-bottom: 24px; /* 문단 간의 구분을 위해 여백 소폭 확보 */
+            }
         }
     </style>
 </head>
