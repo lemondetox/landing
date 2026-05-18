@@ -24,34 +24,23 @@ body {
     overflow-x: hidden;
 }
 
-/* ==========================================
-   2. 스크롤 애니메이션 설정 (Reveal) - 모바일 하드웨어 가속 버그 완벽 수정 
-   ========================================== */
+/* 2. 스크롤 애니메이션 설정 (Reveal) - 호버 충돌 버그 전면 수정 */
 .reveal {
     opacity: 0;
-    /* 모바일 브라우저 3D 레이어 연산 강제 활성화 처리 */
     transform: translateY(30px) translateZ(0);
     -webkit-transform: translateY(30px) translateZ(0);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    
-    /* 애니메이션 속도 최적화 */
     transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
                 transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
     will-change: transform, opacity;
 }
 
-/* 스크롤이 도달해 active가 붙었을 때의 처리 */
+/* 스크롤 도달 시 활성화 상태 */
 .reveal.active {
     opacity: 1 !important;
     transform: translateY(0) translateZ(0) !important;
     -webkit-transform: translateY(0) translateZ(0) !important;
-}
-
-/* [추가 보완] 다크모드 글래스모피즘 카드가 애니메이션할 때 깨지는 사파리 버그 방지 */
-.spec-card, .step-item {
-    transform-style: preserve-3d;
-    -webkit-transform-style: preserve-3d;
 }
 
 /* 공통 컨테이너 */
@@ -99,12 +88,11 @@ body {
     z-index: 10;
 }
 
-/* 수정된 코드 (2배 확대) */
 .main-logo { 
-    width: 100%;        /* 모바일에서 더 시원하게 보이도록 100%로 확장 */
-    max-width: 900px;    /* 기존 450px의 2배인 900px로 변경 */
-    margin-bottom: 30px; /* 로고가 커진 만큼 하단 여백도 살짝 조정 */
-    height: auto;        /* 이미지 비율 유지 */
+    width: 100%;        
+    max-width: 900px;    
+    margin-bottom: 30px; 
+    height: auto;        
 }
 
 .hero-sub-title { 
@@ -157,7 +145,7 @@ body {
    4. Support System (프리미엄 3대 강점 카드 디자인)
    ========================================== */
 .specialties-bg { 
-    background: #050505; /* 깊이감 있는 제트 블랙 배경 처리 */
+    background: #050505; 
     color: #fff; 
     position: relative; 
     z-index: 20; 
@@ -171,7 +159,7 @@ body {
     margin-top: 40px; 
 }
 
-/* 기존 효과 이식: 시인성 높은 유리 질감 투명 박스 레이아웃 (Glassmorphism) */
+/* 유리 질감 베이스 구조 설정 */
 .spec-card { 
     background: rgba(255, 255, 255, 0.03); 
     backdrop-filter: blur(10px); 
@@ -179,18 +167,20 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.08); 
     padding: 45px 35px; 
     border-radius: 12px;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* 마우스 호버 시 인터랙션 (Y축 리프트 및 시네마틱 섀도우) */
-.spec-card:hover { 
-    transform: translateY(-8px);
+/* [버그 수정] 애니메이션 active 상태가 켜진 이후에도 마우스 오버 효과가 강제 덮어쓰기 되도록 최적화 */
+.spec-card.active:hover { 
+    transform: translateY(-8px) translateZ(0) !important;
+    -webkit-transform: translateY(-8px) translateZ(0) !important;
     background: rgba(255, 255, 255, 0.06);
     border-color: rgba(255, 255, 255, 0.2);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
 }
 
-/* 카드 내부 타이포그래피 세부 조율 */
 .spec-card h3 { 
     margin-bottom: 6px; 
     font-size: 1.45rem; 
@@ -213,7 +203,7 @@ body {
     word-break: keep-all;
 }
 
-/* 가독성을 극대화해주는 상단 네온 숫자 포인트 */
+/* 숫자 아이콘 인디케이터 */
 .biz-icon {
     font-size: 2rem;
     font-weight: 900;
@@ -240,7 +230,6 @@ body {
 .form-group { margin-bottom: 25px; text-align: left; }
 .form-group label { display: block; margin-bottom: 10px; font-weight: 700; color: #111; font-size: 0.9rem; }
 
-/* 필수 입력 별표(*) 빨간색 적용 */
 .form-group label span {
     color: #ff0000 !important;
     margin-left: 4px;
@@ -320,11 +309,11 @@ body {
     height: 18px;
     margin: 0;
     cursor: pointer;
-    flex-shrink: 0; /* 모바일 구겨짐 방지 */
+    flex-shrink: 0; 
 }
 
 .checkbox-container label {
-    display: inline; /* 레이아웃 붕괴 방지 */
+    display: inline; 
     margin-bottom: 0;
     cursor: pointer;
     font-size: 0.95rem;
@@ -335,7 +324,6 @@ body {
     color: #ff4d4d;
 }
 
-/* 자세히보기 링크 스타일 */
 .link-detail {
     color: #007bff;
     text-decoration: underline;
@@ -343,7 +331,6 @@ body {
     margin-left: 5px;
 }
 
-/* 에러 메시지 스타일 (빨간 글씨) */
 .error-text {
     color: #ff4d4d;
     font-size: 0.85rem;
@@ -362,7 +349,6 @@ body {
     z-index: 20;
 }
 
-/* 상단 대제목 컬러풀 그라데이션 */
 .gradient-text {
     background: linear-gradient(135deg, #ff0055, #00f0ff);
     background-clip: text;
@@ -370,7 +356,6 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
-/* 가로 배열 레이아웃 */
 .process-steps {
     display: flex;
     align-items: center;
@@ -379,7 +364,6 @@ body {
     margin-top: 40px;
 }
 
-/* 조그마하고 세련된 글래스모피즘 미니 박스 */
 .step-item {
     flex: 1;
     background: rgba(255, 255, 255, 0.02);
@@ -387,13 +371,17 @@ body {
     padding: 16px 8px; 
     border-radius: 8px;
     text-align: center;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.step-item:hover {
+/* [버그 수정] 절차 스텝 미니 박스도 애니메이션 활성화 상태에서 마우스 오버 완벽 작동 처리 */
+.step-item.active:hover {
     background: rgba(255, 255, 255, 0.05);
     border-color: #f37021;
-    transform: translateY(-3px);
+    transform: translateY(-3px) translateZ(0) !important;
+    -webkit-transform: translateY(-3px) translateZ(0) !important;
 }
 
 .step-num {
@@ -412,7 +400,6 @@ body {
     word-break: keep-all;
 }
 
-/* 조그마한 가로 화살표 아이콘 */
 .step-arrow {
     width: 6px;
     height: 6px;
@@ -447,7 +434,6 @@ body {
         padding: 35px 25px;
     }
     
-    /* 모바일 환경에서 절차 바를 세로 정렬(계단식)로 직관성 극대화 */
     .process-steps {
         flex-direction: column;
         gap: 12px;
@@ -456,7 +442,6 @@ body {
         width: 100%;
         padding: 16px 20px;
     }
-    /* 화살표가 아래쪽을 가리키도록 변경 */
     .step-arrow {
         transform: rotate(135deg);
         margin: 4px 0;
