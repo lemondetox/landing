@@ -24,21 +24,34 @@ body {
     overflow-x: hidden;
 }
 
-/* 2. 스크롤 애니메이션 설정 (Reveal) - 모바일 최적화 수정 */
+/* ==========================================
+   2. 스크롤 애니메이션 설정 (Reveal) - 모바일 하드웨어 가속 버그 완벽 수정 
+   ========================================== */
 .reveal {
     opacity: 0;
-    /* 모바일에서 더 부드럽게 보이도록 이동 거리를 20px로 조정 */
-    transform: translateY(20px);
-    /* 모바일 스크롤 속도에 맞춰 1.2s에서 0.8s로 단축 */
-    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-    visibility: visible;
-    /* 브라우저가 애니메이션을 미리 준비하도록 가속 힌트 추가 */
+    /* 모바일 브라우저 3D 레이어 연산 강제 활성화 처리 */
+    transform: translateY(30px) translateZ(0);
+    -webkit-transform: translateY(30px) translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    
+    /* 애니메이션 속도 최적화 */
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
+                transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
     will-change: transform, opacity;
 }
 
+/* 스크롤이 도달해 active가 붙었을 때의 처리 */
 .reveal.active {
     opacity: 1 !important;
-    transform: translateY(0) !important;
+    transform: translateY(0) translateZ(0) !important;
+    -webkit-transform: translateY(0) translateZ(0) !important;
+}
+
+/* [추가 보완] 다크모드 글래스모피즘 카드가 애니메이션할 때 깨지는 사파리 버그 방지 */
+.spec-card, .step-item {
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
 }
 
 /* 공통 컨테이너 */
