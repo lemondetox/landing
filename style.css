@@ -529,3 +529,10 @@ body {
         margin: 4px 0;
     }
 }
+
+/* 지원하기 버튼이 전송 중(잠금) 상태일 때의 비활성화 스타일 */
+.btn-submit:disabled {
+    background: #666 !important; /* 버튼 색상을 회색으로 변경 */
+    opacity: 0.6;               /* 은은하게 투명 처리 */
+    cursor: not-allowed;        /* 마우스 커서를 클릭 금지 모양으로 변경 */
+}
