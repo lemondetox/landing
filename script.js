@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 body: new URLSearchParams(new FormData(form)) 
             })
             .then(() => {
-                // ⭐️ [변경 사항] 투박한 alert 창 대신, 미리 만들어둔 완료 페이지로 자연스럽게 이동합니다.
+                // 데이터 전송이 시작되면 곧바로 완료 페이지(complete.html)로 즉시 이동합니다.
                 window.location.href = 'complete.html'; 
             })
             .catch(error => {
