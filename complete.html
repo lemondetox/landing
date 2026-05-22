@@ -10,14 +10,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
     
     <style>
-        /* 완료 페이지 전용 깔끔한 센터 정렬 스타일 */
+        /* 완료 페이지 전용 프리미엄 다크 무드 스타일 */
         .complete-wrapper {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            background: #111; /* 기존 다크테마와 맞춘 배경색 */
+            background: #111; /* 기존 젠틀스튜디오 테마와 맞춘 블랙 배경 */
             color: #fff;
             text-align: center;
             padding: 20px;
@@ -34,16 +34,26 @@
             line-height: 1.8;
             margin-bottom: 40px;
         }
+        
+        /* ⭐️ [핵심 수정] style.css의 노란색 하이라이트 배경을 완벽히 무력화 */
         .complete-desc .highlight {
-            color: #fff;
+            background: transparent !important; /* 노란색 배경 삭제 */
+            background-color: transparent !important;
+            color: #ffffff !important; /* 글씨색을 선명한 흰색으로 강제 고정 */
             font-weight: 700;
-            border-bottom: 2px solid #fff;
+            border-bottom: 2px solid #fff; /* 세련된 밑줄 포인트 */
+            padding: 0 2px;
         }
     </style>
 </head>
-<body class="loaded"> <div class="complete-wrapper">
+<body class="loaded">
+
+    <div class="complete-wrapper">
         <div class="reveal active" style="opacity: 1; transform: translateY(0);">
-            <img src="https://rawcdn.githack.com/lemondetox/landing/a0f288e80808452405883cf49c5b54fb92ec953e/%EC%A0%A0%ED%8B%80%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-%EB%A1%9C%EA%B3%A0_Futura-pt_demi.png?raw=true" alt="GENTLE STUDIO" class="main-logo" style="margin-bottom: 30px; max-width: 200px;">
+            <img src="https://rawcdn.githack.com/lemondetox/landing/0a949141387219ff64a2cb043e530c720ded1654/GentleStudio_W.png?raw=true" 
+                 alt="GENTLE STUDIO" 
+                 class="main-logo" 
+                 style="margin-bottom: 35px; max-width: 240px; height: auto;">
             
             <h2 class="aggro-text complete-title">THANK YOU</h2>
             <p class="complete-desc">
