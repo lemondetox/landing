@@ -143,16 +143,15 @@ body {
 
 
 /* ==========================================
-   [업데이트] 다크 통합 래퍼 (인스타그램 크리에이터 은은한 배경 텍스쳐 섹션)
+   [업데이트] 다크 통합 래퍼 (배경 이미지 시인성 대폭 개선 버전)
    ========================================== */
 .dark-theme-wrapper {
     position: relative;
-    background-color: #050505; /* 기본 깊은 블랙 베이스 배경 */
+    background-color: #050505; 
     z-index: 10;
-    overflow: hidden; /* 블러 처리된 외곽선이 삐져나가지 않도록 제어 */
+    overflow: hidden; 
 }
 
-/* 모바일 반응형 및 흐릿한 필터가 적용된 백그라운드 레이어 */
 .dark-theme-wrapper::before {
     content: '';
     position: absolute;
@@ -164,25 +163,24 @@ body {
     /* 단색 우아한 핑크색 배경지 */
     background-image: url("https://rawcdn.githack.com/lemondetox/landing/95039a1d7aeacab0e42e5237d68840ef68c95f6d/%EB%B0%B0%EA%B2%BD%EC%A7%80.jpg?raw=true");
     
-    /* 모바일 반응형 핵심 속성: 화면 크기에 맞춰 가로세로 비율 최적 유지 */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     
-    /* 은은하게 흐려지고 녹아드는 연출 효과 (텍스트 시인성 확보) */
-    opacity: 0.18; /* 0에 가까울수록 흐릿하게 어두워집니다 */
-    filter: blur(4px); /* 숫자가 높을수록 텍스처가 몽환적이고 부드러워집니다 */
+    /* 🛠️ 배경이 확실히 보이도록 투명도를 높이고 블러를 제거했습니다 */
+    opacity: 0.55;       /* 원래 0.18에서 선명하게 조정 (더 밝게 원하시면 0.7~0.8로 올리세요) */
+    filter: blur(0px);   /* 원래 4px 블러를 없애 이미지가 깨끗하게 나옵니다 */
     
-    z-index: 1; /* 콘텐츠 영역 뒤쪽 배치 */
-    pointer-events: none; /* 클릭 마우스 이벤트 방해 금지 */
+    z-index: 1; 
+    pointer-events: none; 
 }
 
-/* 상하단 섹션 간의 경계를 자연스럽게 뭉개주는 다크 그라데이션 마스크 그라디언트 추가 */
+/* 배경 그라데이션 마스크 수치 완화 (이미지가 위아래로 더 넓게 보이도록) */
 .dark-theme-wrapper::after {
     content: '';
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(180deg, #050505 0%, transparent 15%, transparent 85%, #050505 100%);
+    background: linear-gradient(180deg, #050505 0%, transparent 8%, transparent 92%, #050505 100%);
     z-index: 2;
     pointer-events: none;
 }
@@ -192,7 +190,7 @@ body {
    4. Support System (프리미엄 3대 강점 카드 디자인)
    ========================================== */
 .specialties-bg { 
-    background: transparent; /* 배경을 투명하게 열어 래퍼의 크리에이터 이미지를 투과 */
+    background: transparent; 
     color: #fff; 
     position: relative; 
     z-index: 20; 
@@ -208,7 +206,6 @@ body {
 }
 
 .intro-card {
-    /* 배경 요소를 극도로 투명하게 조율하여 은은한 감성 유지 */
     background: rgba(255, 255, 255, 0.015);
     border-left: 3px solid #f37021; 
     padding: 20px 24px;
@@ -425,7 +422,7 @@ body {
     color: #ffffff;
     position: relative;
     z-index: 20;
-    padding-top: 0; /* 상단 섹션 배경 패턴과의 매끄러운 밀착 브릿지 연결 여백 */
+    padding-top: 0; 
 }
 
 .gradient-text {
@@ -493,7 +490,7 @@ body {
    ========================================== */
 @media (max-width: 991px) {
     .support-intro-grid {
-        grid-template-columns: 1fr; /* 모바일 브라우저 환경에서 요약 카드 1열 세로 배열 */
+        grid-template-columns: 1fr; 
         gap: 12px;
     }
     .spec-grid {
@@ -532,9 +529,9 @@ body {
 
 /* 지원하기 버튼이 전송 중(잠금) 상태일 때의 비활성화 스타일 */
 .btn-submit:disabled {
-    background: #666 !important; /* 버튼 색상을 회색으로 변경 */
-    opacity: 0.6;               /* 은은하게 투명 처리 */
-    cursor: not-allowed;        /* 마우스 커서를 클릭 금지 모양으로 변경 */
+    background: #666 !important; 
+    opacity: 0.6;               
+    cursor: not-allowed;        
 }
 
 /* 개인 활동 과정 글씨 크기 확대 */
@@ -544,17 +541,17 @@ body {
 
 /* STEP 01, STEP 02 등 숫자 부분 */
 .process-steps .step-num {
-    font-size: 18px !important;   /* 기존보다 크게 변경 */
-    font-weight: 700;            /* 글씨를 더 두껍게 */
-    letter-spacing: 1px;         /* 글자 간격 넓히기 */
+    font-size: 18px !important;   
+    font-weight: 700;            
+    letter-spacing: 1px;         
     display: block;
-    margin-bottom: 8px;          /* 아래 글씨와의 간격 */
+    margin-bottom: 8px;          
 }
 
 /* '지원', '내부 검토 및 심사' 등 한글 텍스트 부분 */
 .process-steps .step-text {
-    font-size: 22px !important;   /* 한눈에 보이도록 크게 변경 */
-    font-weight: 900;            /* 굵은 글씨체 적용 */
-    color: #fff;                 /* 어두운 배경에서 잘 보이도록 흰색 지정 (필요시 변경) */
+    font-size: 22px !important;   
+    font-weight: 900;            
+    color: #fff;                 
     line-height: 1.4;
 }
