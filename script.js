@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /**
- * 2. 구글 폼 백엔드 우회 비동기 전송 스크립트 (인코딩 포맷 패치 완료)
+ * 2. 구글 폼 백엔드 우회 비동기 전송 및 완료 페이지 리다이렉트 스크립트
  */
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('db-form');
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 submitBtn.innerText = '전 송 중...';
             }
 
-            // ⭐️ 핵심 변경 사항: 구글 폼이 백엔드에서 100% 인식할 수 있도록 URLSearchParams 포맷으로 변환하여 전송합니다.
+            // 구글 폼으로 인코딩 데이터 전송
             fetch(scriptURL, { 
                 method: 'POST', 
                 mode: 'no-cors',
@@ -75,15 +75,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 body: new URLSearchParams(new FormData(form)) 
             })
             .then(() => {
-                alert('지원이 정상적으로 접수되었습니다. 감사합니다!');
-                form.reset(); // 입력 폼 초기화
+                // ⭐️ [변경 사항] 투박한 alert 창 대신, 미리 만들어둔 완료 페이지로 자연스럽게 이동합니다.
+                window.location.href = 'complete.html'; 
             })
             .catch(error => {
                 console.error('Error!', error.message);
                 alert('전송 중 오류가 발생했습니다. 다시 시도해주세요.');
-            })
-            .finally(() => {
-                // 버튼 상태 복구
+                
+                // 에러 발생 시에만 버튼 잠금을 풀고 원래대로 복구합니다.
                 if (submitBtn) {
                     submitBtn.disabled = false;
                     submitBtn.innerText = '지 원 하 기'; 
