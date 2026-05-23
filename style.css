@@ -557,60 +557,70 @@ body {
     line-height: 1.4;
 }
 
-/* 1. 기본 섹션에 상대 위치(relative)와 z-index 기준 설정 */
+/* 1. 섹션 기본 설정 (어두운 배경 가정) */
 .specialties-bg {
   position: relative;
-  overflow: hidden; /* 영역 밖으로 나가는 오브젝트 잘라내기 */
+  overflow: hidden;
+  background-color: #0b0b0b; /* 혹시 배경이 안 깔려 있다면 어두운 톤 지정 */
+  padding: 100px 0;
   z-index: 1;
 }
 
-/* 2. 글자가 들어있는 컨테이너를 배경보다 위로 올리기 */
+/* 2. 콘텐츠는 확실하게 위로 */
 .specialties-bg .container {
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
-/* 3. 왼쪽 배경 오브젝트 (막대기 또는 도형 텍스처) */
+/* ✨ 3. 왼쪽 배경: 세련된 오렌지 그라데이션 수직 바 + 미세한 유기적 움직임 */
 .specialties-bg::before {
   content: "";
   position: absolute;
-  top: 15%;         /* 위에서부터의 위치 */
-  left: -20px;       /* 왼쪽 끝에 배치 (필요시 음수 값으로 살짝 걸치게) */
-  width: 150px;      /* 이미지 가로 크기 */
-  height: 300px;     /* 이미지 세로 크기 */
-  background-image: url('images/left-texture.png'); /* 왼쪽 이미지 경로 */
-  background-size: contain;
-  background-repeat: no-repeat;
+  top: 15%;
+  left: 4%;
+  width: 3px;
+  height: 250px;
+  /* 브랜드 시그니처 주황색에서 투명하게 떨어지는 세련된 라인 */
+  background: linear-gradient(to bottom, #ff6b00, rgba(255, 107, 0, 0.1), transparent);
+  box-shadow: 0 0 20px rgba(255, 107, 0, 0.4); /* 고급스러운 네온 느낌의 불빛 */
+  z-index: 2;
+  pointer-events: none;
   
-  /* 가독성의 핵심: 투명도를 대폭 낮춤 */
-  opacity: 0.08;     
-  z-index: 1;
-  pointer-events: none; /* 클릭 방해 금지 */
+  /* 고급스러운 느낌을 주는 미세한 상하 플로팅 애니메이션 */
+  animation: floatingBar 6s ease-in-out infinite;
 }
 
-/* 4. 오른쪽 배경 오브젝트 */
+/* ✨ 4. 오른쪽 배경: 대형 앱스트랙트 원형 그래픽 (공간감을 채워줌) */
 .specialties-bg::after {
   content: "";
   position: absolute;
-  bottom: 15%;      /* 아래에서부터의 위치 */
-  right: -20px;     /* 오른쪽 끝에 배치 */
-  width: 180px;
-  height: 400px;
-  background-image: url('images/right-texture.png'); /* 오른쪽 이미지 경로 */
-  background-size: contain;
-  background-repeat: no-repeat;
-  
-  /* 가독성의 핵심: 투명도를 대폭 낮춤 */
-  opacity: 0.08;     
+  bottom: -100px;
+  right: -100px;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  /* 글자를 절대 침범하지 않도록 은은하게 퍼지는 오렌지 빛 조명 효과 */
+  background: radial-gradient(circle, rgba(255, 107, 0, 0.08) 0%, rgba(255, 107, 0, 0.02) 50%, transparent 70%);
+  filter: blur(20px);
   z-index: 1;
   pointer-events: none;
 }
 
-/* 5. ⚠️ 반응형 처리: 태블릿/모바일에서는 가독성을 위해 배경을 없앰 */
+/* ⚙️ 5. 세련미를 극대화하는 애니메이션 효과 */
+@keyframes floatingBar {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px); /* 위아래로 부드럽게 움직임 */
+  }
+}
+
+/* ⚠️ 6. 반응형: 화면이 좁은 모바일에서는 텍스트에만 집중하도록 제거 */
 @media (max-width: 1024px) {
   .specialties-bg::before,
   .specialties-bg::after {
-    display: none; /* 또는 opacity: 0.02 등으로 거의 안 보이게 처리 */
+    display: none;
   }
 }
 
@@ -625,22 +635,25 @@ body {
   font-family: 'Futura', 'Montserrat', sans-serif;
 }
 
-/* ✨ 하이라이트 효과가 적용되는 부분 */
+.hero-with-brand {
+  font-size: 1.1rem;
+  font-weight: 600;           /* 글자가 선명하게 보이도록 두께를 살짝 올림 */
+  color: #000000;             /* 텍스트 색상을 깔끔한 검은색으로 변경 */
+  margin-top: 15px;
+  margin-bottom: 8px;
+  letter-spacing: 0.05em;
+  text-align: center;
+  font-family: 'Futura', 'Montserrat', sans-serif;
+}
+
+/* 하이라이트 효과 부분 */
 .hero-with-brand span {
   position: relative;
   display: inline-block;
-  padding: 0 4px;            /* 하이라이트 양끝이 글자보다 아주 살짝 더 튀어나오게 처리 (세련미) */
-  
-  /* linear-gradient(180deg, 투명영역 %값, 주황색컬러 %값)
-    - 투명 영역이 50%를 차지하므로, 하단 정확히 '반'만 주황색이 깔리게 됩니다.
-  */
+  padding: 0 6px;            /* 하이라이트 여백을 살짝 넓혀 안정감 부여 */
   background: linear-gradient(180deg, transparent 50%, #ff6b00 50%);
-  /* ✨ 텍스트 테두리(Stroke) 추가 */
-  -webkit-text-stroke: 1px #000000;  /* 크롬, 사파리, 엣지 등 대부분의 브라우저 지원 */
-  text-stroke: 1px #000000;          /* 표준 속성 */
   
-  /* 글자끼리 너무 붙어 보이면 테두리 때문에 답답할 수 있으니 자간을 살짝 넓혀줍니다 */
-  letter-spacing: 0.08em;
+  /* 테두리(stroke) 속성은 깔끔하게 제거되었습니다 */
 }
 
 /* 모바일 화면 반응형 조절 */
