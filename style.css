@@ -613,3 +613,35 @@ body {
     display: none; /* 또는 opacity: 0.02 등으로 거의 안 보이게 처리 */
   }
 }
+
+.hero-with-brand {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #fff;                /* 하이라이트 위에서 잘 보이도록 선명한 화이트로 변경 */
+  margin-top: 15px;
+  margin-bottom: 8px;
+  letter-spacing: 0.05em;
+  text-align: center;
+  font-family: 'Futura', 'Montserrat', sans-serif;
+}
+
+/* ✨ 하이라이트 효과가 적용되는 부분 */
+.hero-with-brand span {
+  position: relative;
+  display: inline-block;
+  padding: 0 4px;            /* 하이라이트 양끝이 글자보다 아주 살짝 더 튀어나오게 처리 (세련미) */
+  
+  /* linear-gradient(180deg, 투명영역 %값, 주황색컬러 %값)
+    - 투명 영역이 50%를 차지하므로, 하단 정확히 '반'만 주황색이 깔리게 됩니다.
+  */
+  background: linear-gradient(180deg, transparent 50%, #ff6b00 50%);
+}
+
+/* 모바일 화면 반응형 조절 */
+@media (max-width: 768px) {
+  .hero-with-brand {
+    font-size: 0.95rem;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+}
