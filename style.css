@@ -556,3 +556,60 @@ body {
     color: #fff;                 
     line-height: 1.4;
 }
+
+/* 1. 기본 섹션에 상대 위치(relative)와 z-index 기준 설정 */
+.specialties-bg {
+  position: relative;
+  overflow: hidden; /* 영역 밖으로 나가는 오브젝트 잘라내기 */
+  z-index: 1;
+}
+
+/* 2. 글자가 들어있는 컨테이너를 배경보다 위로 올리기 */
+.specialties-bg .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* 3. 왼쪽 배경 오브젝트 (막대기 또는 도형 텍스처) */
+.specialties-bg::before {
+  content: "";
+  position: absolute;
+  top: 15%;         /* 위에서부터의 위치 */
+  left: -20px;       /* 왼쪽 끝에 배치 (필요시 음수 값으로 살짝 걸치게) */
+  width: 150px;      /* 이미지 가로 크기 */
+  height: 300px;     /* 이미지 세로 크기 */
+  background-image: url('images/left-texture.png'); /* 왼쪽 이미지 경로 */
+  background-size: contain;
+  background-repeat: no-repeat;
+  
+  /* 가독성의 핵심: 투명도를 대폭 낮춤 */
+  opacity: 0.08;     
+  z-index: 1;
+  pointer-events: none; /* 클릭 방해 금지 */
+}
+
+/* 4. 오른쪽 배경 오브젝트 */
+.specialties-bg::after {
+  content: "";
+  position: absolute;
+  bottom: 15%;      /* 아래에서부터의 위치 */
+  right: -20px;     /* 오른쪽 끝에 배치 */
+  width: 180px;
+  height: 400px;
+  background-image: url('images/right-texture.png'); /* 오른쪽 이미지 경로 */
+  background-size: contain;
+  background-repeat: no-repeat;
+  
+  /* 가독성의 핵심: 투명도를 대폭 낮춤 */
+  opacity: 0.08;     
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* 5. ⚠️ 반응형 처리: 태블릿/모바일에서는 가독성을 위해 배경을 없앰 */
+@media (max-width: 1024px) {
+  .specialties-bg::before,
+  .specialties-bg::after {
+    display: none; /* 또는 opacity: 0.02 등으로 거의 안 보이게 처리 */
+  }
+}
