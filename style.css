@@ -339,7 +339,7 @@ body {
 
 
 /* ==========================================
-   5. Form Section (✨ 꽉 차는 와이드 기하학 일러스트 배경 전면 개편)
+   5. Form Section (✨ 선 두께 및 선명도 대폭 상향 수정본)
    ========================================== */
 .apply-section { 
     background: var(--bg-alt); 
@@ -349,7 +349,6 @@ body {
     padding: 120px 0;
 }
 
-/* 화면 가로 전체(100%)에 아름답게 흐르는 모던 에이전시 테크 라인 일러스트 */
 .apply-section::before {
     content: "";
     position: absolute;
@@ -359,16 +358,15 @@ body {
     height: 100%;
     z-index: 1;
     pointer-events: none;
-    opacity: 0.8; /* 눈에 띄면서 글자를 방해하지 않는 최적의 투명도 */
+    opacity: 1; /* 투명도 왜곡 차단 */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     
-    /* 고해상도 전체 화면 와이드 SVG 일러스트 라인 적용 */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1440' height='900' viewBox='0 0 1440 900' fill='none'%3E%3Ccircle cx='100' cy='150' r='350' stroke='%23f37021' stroke-width='1.5' opacity='0.09'/%3E%3Ccircle cx='100' cy='150' r='180' stroke='%23000000' stroke-width='1' stroke-dasharray='6 4' opacity='0.05'/%3E%3Ccircle cx='1350' cy='750' r='450' stroke='%23000000' stroke-width='1' opacity='0.04'/%3E%3Ccircle cx='1350' cy='750' r='250' stroke='%23f37021' stroke-width='1.5' stroke-dasharray='8 6' opacity='0.07'/%3E%3Cpath d='M-100 250 Q 350 50, 720 450 T 1540 650' stroke='%23f37021' stroke-width='1.5' opacity='0.12'/%3E%3Cpath d='M-100 320 Q 380 120, 720 520 T 1540 720' stroke='%23000000' stroke-width='1' stroke-dasharray='4 4' opacity='0.06'/%3E%3C/svg%3E");
+    /* 🛠️ SVG 내부의 선 두께(stroke-width)를 2.5px ~ 4px로 올리고, 내부 선 투명도(opacity)를 끌어올려 선명하게 명시 */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1440' height='900' viewBox='0 0 1440 900' fill='none'%3E%3Ccircle cx='100' cy='150' r='350' stroke='%23f37021' stroke-width='4' opacity='0.28'/%3E%3Ccircle cx='100' cy='150' r='180' stroke='%23000000' stroke-width='2.5' stroke-dasharray='8 6' opacity='0.16'/%3E%3Ccircle cx='1350' cy='750' r='450' stroke='%23000000' stroke-width='2.5' opacity='0.14'/%3E%3Ccircle cx='1350' cy='750' r='250' stroke='%23f37021' stroke-width='4' stroke-dasharray='10 8' opacity='0.25'/%3E%3Cpath d='M-100 250 Q 350 50, 720 450 T 1540 650' stroke='%23f37021' stroke-width='4.5' opacity='0.35'/%3E%3Cpath d='M-100 320 Q 380 120, 720 520 T 1540 720' stroke='%23000000' stroke-width='2.5' stroke-dasharray='6 6' opacity='0.20'/%3E%3C/svg%3E");
 }
 
-/* 기존 구석에 박혀 찌그러졌던 사선 텍스처(::after)는 버그 유발 방지를 위해 깔끔하게 제거했습니다 */
 .apply-section::after {
     display: none;
 }
@@ -620,7 +618,6 @@ body {
    반응형 모바일 및 태블릿 레이아웃 완벽 대응
    ========================================== */
 @media (max-width: 1024px) {
-    /* 모바일 환경에서는 입력창 가독성을 극대화하기 위해 배경 일러스트들을 자동으로 숨깁니다 */
     .specialties-bg::before,
     .specialties-bg::after,
     .apply-section::before,
