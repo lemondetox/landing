@@ -339,41 +339,38 @@ body {
 
 
 /* ==========================================
-   5. Form Section (럭셔리 미니멀 라인 패턴 배경 탑재)
+   5. Form Section (✨ 꽉 차는 와이드 기하학 일러스트 배경 전면 개편)
    ========================================== */
 .apply-section { 
     background: var(--bg-alt); 
     position: relative; 
     z-index: 20; 
     overflow: hidden; 
+    padding: 120px 0;
 }
 
-/* 신청폼 배경: 좌측 상단 모던 아키텍처 대형 아치 라인 */
+/* 화면 가로 전체(100%)에 아름답게 흐르는 모던 에이전시 테크 라인 일러스트 */
 .apply-section::before {
     content: "";
     position: absolute;
-    top: -150px;
-    left: -150px;
-    width: 500px;
-    height: 500px;
-    border: 1px solid rgba(0, 0, 0, 0.025);
-    border-radius: 50%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     z-index: 1;
     pointer-events: none;
+    opacity: 0.8; /* 눈에 띄면서 글자를 방해하지 않는 최적의 투명도 */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* 고해상도 전체 화면 와이드 SVG 일러스트 라인 적용 */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1440' height='900' viewBox='0 0 1440 900' fill='none'%3E%3Ccircle cx='100' cy='150' r='350' stroke='%23f37021' stroke-width='1.5' opacity='0.09'/%3E%3Ccircle cx='100' cy='150' r='180' stroke='%23000000' stroke-width='1' stroke-dasharray='6 4' opacity='0.05'/%3E%3Ccircle cx='1350' cy='750' r='450' stroke='%23000000' stroke-width='1' opacity='0.04'/%3E%3Ccircle cx='1350' cy='750' r='250' stroke='%23f37021' stroke-width='1.5' stroke-dasharray='8 6' opacity='0.07'/%3E%3Cpath d='M-100 250 Q 350 50, 720 450 T 1540 650' stroke='%23f37021' stroke-width='1.5' opacity='0.12'/%3E%3Cpath d='M-100 320 Q 380 120, 720 520 T 1540 720' stroke='%23000000' stroke-width='1' stroke-dasharray='4 4' opacity='0.06'/%3E%3C/svg%3E");
 }
 
-/* 신청폼 배경: 우측 하단 럭셔리 매트 패키지 사선 텍스처 */
+/* 기존 구석에 박혀 찌그러졌던 사선 텍스처(::after)는 버그 유발 방지를 위해 깔끔하게 제거했습니다 */
 .apply-section::after {
-    content: "";
-    position: absolute;
-    bottom: -50px;
-    right: -20px;
-    width: 300px;
-    height: 300px;
-    background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.015) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.015) 50%, rgba(0, 0, 0, 0.015) 75%, transparent 75%, transparent);
-    background-size: 16px 16px;
-    z-index: 1;
-    pointer-events: none;
+    display: none;
 }
 
 .contact-form { 
@@ -623,7 +620,7 @@ body {
    반응형 모바일 및 태블릿 레이아웃 완벽 대응
    ========================================== */
 @media (max-width: 1024px) {
-    /* 복잡한 화면 크기에서 가독성을 보장하기 위해 배경 일러스트 요소 전면 숨김 */
+    /* 모바일 환경에서는 입력창 가독성을 극대화하기 위해 배경 일러스트들을 자동으로 숨깁니다 */
     .specialties-bg::before,
     .specialties-bg::after,
     .apply-section::before,
@@ -648,7 +645,6 @@ body {
 }
 
 @media (max-width: 768px) {
-    /* 모바일 환경에서의 위드 애드플랜터스 미세 크기 보정 */
     .hero-with-brand {
         font-size: 0.95rem;
         margin-top: 10px;
