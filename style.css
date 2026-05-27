@@ -215,7 +215,7 @@ body {
 }
 .section-padding { padding: 100px 0; }
 
-/* 왼쪽 배경: 프리미엄 오렌지 테크니컬 유기적 라인 & 차트 일러스트 */
+/* PC 기준 왼쪽 배경 일러스트 */
 .specialties-bg::before {
     content: "";
     position: absolute;
@@ -228,9 +228,10 @@ body {
     background-repeat: no-repeat;
     background-size: contain;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='800' viewBox='0 0 500 800' fill='none'%3E%3Cpath d='M-100 100 C 100 200, 200 50, 400 300 S 300 700, 600 600' stroke='url(%23grad1)' stroke-width='2' opacity='0.25'/%3E%3Cpath d='M-100 160 C 120 240, 180 100, 380 360 S 340 690, 580 640' stroke='url(%23grad1)' stroke-width='1' opacity='0.15'/%3E%3Ccircle cx='150' cy='250' r='140' stroke='%23ff6b00' stroke-width='1' stroke-dasharray='6 6' opacity='0.2'/%3E%3Ccircle cx='150' cy='250' r='70' stroke='%23ff6b00' stroke-width='1.5' opacity='0.12'/%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ff6b00'/%3E%3Cstop offset='100%25' stop-color='transparent'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E");
+    transition: all 0.4s ease;
 }
 
-/* 오른쪽 배경: 세련된 테크 에이전시 서클 & 디지털 레이아웃 일러스트 */
+/* PC 기준 오른쪽 배경 일러스트 */
 .specialties-bg::after {
     content: "";
     position: absolute;
@@ -243,6 +244,7 @@ body {
     background-repeat: no-repeat;
     background-size: contain;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='800' viewBox='0 0 600 800' fill='none'%3E%3Ccircle cx='450' cy='450' r='220' stroke='%2300f0ff' stroke-width='1' opacity='0.12'/%3E%3Ccircle cx='450' cy='450' r='320' stroke='%2300f0ff' stroke-width='1' stroke-dasharray='8 4' opacity='0.15'/%3E%3Cline x1='100' y1='450' x2='600' y2='450' stroke='%2300f0ff' stroke-width='1' opacity='0.08'/%3E%3Cline x1='450' y1='150' x2='450' y2='750' stroke='%2300f0ff' stroke-width='1' opacity='0.08'/%3E%3Cpath d='M 280 280 L 450 110 L 620 280' stroke='%23ffffff' stroke-width='1' opacity='0.08'/%3E%3Cpolygon points='450,430 470,460 430,460' fill='%2300f0ff' opacity='0.15'/%3E%3C/svg%3E");
+    transition: all 0.4s ease;
 }
 
 /* 3대 기본 지원 핵심 요약 스펙 그리드 */
@@ -339,7 +341,7 @@ body {
 
 
 /* ==========================================
-   5. Form Section (✨ 선 두께 및 선명도 대폭 상향 수정본)
+   5. Form Section (선 두께 및 선명도 대폭 상향 수정본)
    ========================================== */
 .apply-section { 
     background: var(--bg-alt); 
@@ -358,13 +360,12 @@ body {
     height: 100%;
     z-index: 1;
     pointer-events: none;
-    opacity: 1; /* 투명도 왜곡 차단 */
+    opacity: 1; 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    
-    /* 🛠️ SVG 내부의 선 두께(stroke-width)를 2.5px ~ 4px로 올리고, 내부 선 투명도(opacity)를 끌어올려 선명하게 명시 */
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1440' height='900' viewBox='0 0 1440 900' fill='none'%3E%3Ccircle cx='100' cy='150' r='350' stroke='%23f37021' stroke-width='4' opacity='0.28'/%3E%3Ccircle cx='100' cy='150' r='180' stroke='%23000000' stroke-width='2.5' stroke-dasharray='8 6' opacity='0.16'/%3E%3Ccircle cx='1350' cy='750' r='450' stroke='%23000000' stroke-width='2.5' opacity='0.14'/%3E%3Ccircle cx='1350' cy='750' r='250' stroke='%23f37021' stroke-width='4' stroke-dasharray='10 8' opacity='0.25'/%3E%3Cpath d='M-100 250 Q 350 50, 720 450 T 1540 650' stroke='%23f37021' stroke-width='4.5' opacity='0.35'/%3E%3Cpath d='M-100 320 Q 380 120, 720 520 T 1540 720' stroke='%23000000' stroke-width='2.5' stroke-dasharray='6 6' opacity='0.20'/%3E%3C/svg%3E");
+    transition: all 0.4s ease;
 }
 
 .apply-section::after {
@@ -511,7 +512,7 @@ body {
     overflow: hidden;
 }
 
-/* 활동 과정 배경: 은은하게 뒤를 채우는 엠비언트 오렌지 조명 효과 */
+/* 활동 과정 배경: 조명 효과 */
 .activity-section::before {
     content: "";
     position: absolute;
@@ -522,9 +523,10 @@ body {
     filter: blur(30px);
     z-index: 1;
     pointer-events: none;
+    transition: all 0.4s ease;
 }
 
-/* 활동 과정 배경: 공간감을 채우는 미니멀 점선 아웃라인 원형 */
+/* 활동 과정 배경: 점선 원형 패턴 */
 .activity-section::after {
     content: "";
     position: absolute;
@@ -536,6 +538,7 @@ body {
     border-radius: 50%;
     z-index: 1;
     pointer-events: none;
+    transition: all 0.4s ease;
 }
 
 .gradient-text {
@@ -615,16 +618,44 @@ body {
 
 
 /* ==========================================
-   반응형 모바일 및 태블릿 레이아웃 완벽 대응
+   ✨ [수정] 반응형 모바일 및 태블릿 레이아웃 완벽 대응
    ========================================== */
 @media (max-width: 1024px) {
-    .specialties-bg::before,
-    .specialties-bg::after,
-    .apply-section::before,
-    .apply-section::after,
-    .activity-section::before,
+    /* 🛠️ [핵심 변경] 모바일에서 display: none을 완전히 걷어내고, 유연하게 반응형 스케일 다운을 시킵니다. */
+
+    /* 1. Support System 섹션 배경 모바일 리사이징 및 가독성 대비 투명도 미세 조절 */
+    .specialties-bg::before {
+        width: 260px;       /* 모바일에 맞게 크기 축소 */
+        height: 450px;
+        left: -40px;        /* 화면 밖으로 살짝 밀어 텍스트 침범 최소화 */
+        top: 2%;
+        opacity: 0.15;      /* 텍스트 가독성을 방해하지 않게 투명도 조율 */
+    }
+    .specialties-bg::after {
+        width: 280px;       /* 모바일에 맞게 크기 축소 */
+        height: 450px;
+        right: -60px;
+        bottom: 2%;
+        opacity: 0.15;
+    }
+
+    /* 2. 신청폼 영역 모바일 리사이징 (배경 일러스트가 왜곡되거나 깨지지 않게 가로 최적화) */
+    .apply-section::before {
+        background-size: 160% auto; /* 세로로 긴 화면에 맞춰 배경 스케일 확장 */
+        background-position: center 20%;
+        opacity: 0.9;
+    }
+
+    /* 3. 개인 활동 과정 섹션 후광 및 원형 패턴 모바일 리사이징 */
+    .activity-section::before {
+        width: 100%;        /* 좌우 꽉 차게 조명 크기 조절 */
+        height: 300px;
+    }
     .activity-section::after {
-        display: none !important;
+        width: 220px;       /* 대형 서클을 모바일 사이즈로 축소 */
+        height: 220px;
+        bottom: -60px;
+        right: -40px;
     }
 }
 
