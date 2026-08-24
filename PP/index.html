@@ -11,98 +11,9 @@
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gmarket-sans@1.0.0/fonts.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --primary-red: #d32f2f;
-            --bg-light: #f8f9fa;
-            --border-color: #e0e0e0;
-            --text-main: #222222;
-            --text-sub: #666666;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Noto Sans KR', sans-serif;
-            background-color: var(--bg-light);
-            color: var(--text-main);
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 680px;
-            margin: 0 auto;
-            padding: 40px 20px 80px;
-        }
-
-        .page-header { text-align: center; margin-bottom: 40px; }
-        .category-tag { color: #2e7d32; font-size: 0.9rem; font-weight: 700; margin-bottom: 6px; }
-        .page-title { font-size: 1.8rem; font-weight: 900; color: #111; }
-
-        .step-block {
-            margin-top: 35px;
-            margin-bottom: 25px;
-            background: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-        }
-        .step-header {
-            background: var(--primary-red);
-            color: #fff;
-            text-align: center;
-            padding: 6px 0;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-        }
-        .step-title-box { padding: 18px 20px; text-align: center; }
-        .step-title-box h3 { font-size: 1.25rem; font-weight: 900; color: #111; }
-        .step-title-box p { font-size: 0.85rem; color: var(--text-sub); margin-top: 2px; }
-
-        .form-group { margin-bottom: 22px; }
-        .form-group label { display: block; font-weight: 700; font-size: 0.95rem; margin-bottom: 8px; color: #333; }
-        .form-group label .required { color: var(--primary-red); margin-left: 2px; }
-        .form-group .sub-note { font-size: 0.8rem; color: #777; font-weight: 400; display: block; margin-top: 2px; }
-
-        input[type="text"], input[type="tel"], textarea {
-            width: 100%;
-            padding: 14px 16px;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            font-size: 0.95rem;
-            font-family: inherit;
-            background: #fff;
-        }
-        input:focus, textarea:focus { outline: none; border-color: var(--primary-red); }
-
-        .radio-group { display: flex; gap: 15px; margin-top: 6px; }
-        .radio-label {
-            flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px;
-            padding: 12px; background: #fff; border: 1px solid var(--border-color);
-            border-radius: 6px; cursor: pointer; font-size: 0.9rem; font-weight: 500;
-        }
-        .radio-label input[type="radio"] { accent-color: var(--primary-red); }
-
-        .notice-box {
-            background: #fff9f9; border: 1px solid #ffcdd2; border-radius: 8px;
-            padding: 20px; margin: 35px 0 25px; font-size: 0.88rem; line-height: 1.7;
-        }
-        .notice-title { font-weight: 700; color: #b71c1c; margin-bottom: 8px; }
-
-        .privacy-box { margin-bottom: 25px; }
-        .checkbox-container { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; font-weight: 700; }
-        .checkbox-container input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--primary-red); cursor: pointer; }
-        .error-text { color: var(--primary-red); font-size: 0.85rem; margin-top: 6px; font-weight: 700; display: none; }
-
-        .btn-submit {
-            width: 100%; padding: 18px; background: var(--primary-red); color: #fff;
-            font-size: 1.2rem; font-weight: 900; border: none; border-radius: 8px;
-            cursor: pointer; box-shadow: 0 6px 16px rgba(211, 47, 47, 0.25);
-        }
-        .btn-submit:disabled { background: #999; cursor: not-allowed; }
-    </style>
+    
+    <!-- 분리한 CSS 파일 연결 -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -241,7 +152,6 @@
             const errorText = document.getElementById('privacy-error');
             const submitBtn = document.getElementById('submitBtn');
 
-            // 추출된 구글 폼 전송 액션 주소
             const GOOGLE_FORM_ACTION_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdtOM69wEU4GISZ72FUbvgeuusPNb5QEArb8h1R9SY76y7iFw/formResponse';
 
             form.addEventListener('submit', function(e) {
@@ -259,7 +169,6 @@
 
                 const formData = new FormData(form);
 
-                // STEP 3의 3가지 라디오 항목 값을 합쳐서 구글 폼의 마케팅 경험 유무 필드(entry.132328861)로 자동 전송
                 const daangn = form.querySelector('input[name="exp_daangn"]:checked')?.value || '';
                 const placeAd = form.querySelector('input[name="exp_place_ad"]:checked')?.value || '';
                 const searchAd = form.querySelector('input[name="exp_search_ad"]:checked')?.value || '';
@@ -267,23 +176,19 @@
                 const expSummary = `${daangn} / ${placeAd} / ${searchAd}`;
                 formData.append('entry.132328861', expSummary);
 
-                // SNS 주소가 빈칸일 경우 기본값 '없음'으로 처리
                 if (!formData.get('entry.465019058')) formData.set('entry.465019058', '없음');
                 if (!formData.get('entry.661813118')) formData.set('entry.661813118', '없음');
 
-                // no-cors 방식으로 보안 에러 차단 없이 안전하게 데이터 송출
                 fetch(GOOGLE_FORM_ACTION_URL, {
                     method: 'POST',
                     mode: 'no-cors',
                     body: formData
                 })
                 .then(() => {
-                    // 완료 페이지(complete.html)로 즉시 이동
                     window.location.href = 'complete.html';
                 })
                 .catch((error) => {
                     console.error('Submit Error:', error);
-                    // 에러 발생 시에도 무사 접수 처리 후 이동
                     window.location.href = 'complete.html';
                 });
             });
